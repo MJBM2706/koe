@@ -65,7 +65,6 @@
     <!-- Remind Passowrd -->
     <div id="formFooter">
       <a class="underlineHover" href="#">¿Ya tienes una cuenta?</a>
-      
     </div>
   </div>
 </div>

@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koe</title>
     <link rel="icon" type="image/png" href="icons/koe.png">
-    <link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css"  href="css/estilos.css">
+    <link rel="stylesheet" type="text/css"  href="../css/bootstrap.css">
+    <link rel="stylesheet" type="text/css"  href="../css/estilos.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -25,7 +25,7 @@
             <a class="nav-link" href="#">Inicia Sesión</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Registrate</a>
+            <a class="nav-link" href=" ">Registrate</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Conócenos</a>
@@ -46,7 +46,7 @@
 
     <!-- Icon -->
     <div class="fadeIn first">
-      <img src="icons/profile-user.png" id="icon" alt="User Icon" />
+      <img src="../icons/profile-user.png" id="icon" alt="User Icon" />
     </div>
 
     <!-- Login Form -->
@@ -73,7 +73,7 @@
               <a class="nav-link" href="#">Inicia Sesión</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Registrate</a>
+              <a class="nav-link" href=" ">Registrate</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Conócenos</a>
@@ -89,10 +89,10 @@
         <nav class="navbar navbar-expand-sm navbar-dark bg-primary justify-content-center" >
           <ul class="navbar-nav ">
             <li class="nav-item">
-              <a class="nav-link" href="#"><img src="icons/twitter.png" alt="Twitter" width="30px"></a>
+              <a class="nav-link" href="#"><img src="../icons/twitter.png" alt="Twitter" width="30px"></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><img src="icons/facebook.png" alt="Facebook" width="30px"></a>
+              <a class="nav-link" href="#"><img src="../icons/facebook.png" alt="Facebook" width="30px"></a>
             </li>
           </ul>
         </nav>

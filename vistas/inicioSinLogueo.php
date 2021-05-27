@@ -22,19 +22,19 @@
       <div class="collapse navbar-collapse  justify-content-center" id="collapsibleNavbar">
         <ul class="navbar-nav ">
           <li class="nav-item">
-            <a class="nav-link" href="#">Inicia Sesión</a>
+            <a class="nav-link" href="vistas/inicioSesion.php">Inicia Sesión</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Regístrate</a>
+            <a class="nav-link" href="vistas/registro.php">Regístrate</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Conócenos</a>
+            <a class="nav-link" href="vistas/conocenos.php">Conócenos</a>
           </li> 
           <li class="nav-item">
-            <a class="nav-link" href="#">Trabaja con Nosotros</a>
+            <a class="nav-link" href="vistas/trabajaConNosotros.php">Trabaja con Nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Donaciones</a>
+            <a class="nav-link" href="vistas/donaciones.php">Donaciones</a>
           </li>  
         </ul>
       </div>  
@@ -61,29 +61,29 @@
         
           <ul class="navbar-nav ">
             <li class="nav-item">
-              <a class="nav-link" href="#">Inicia Sesión</a>
+              <a class="nav-link" href="vistas/inicioSesion.php">Inicia Sesión</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Regístrate</a>
+              <a class="nav-link" href="vistas/registro.php">Regístrate</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Conócenos</a>
+              <a class="nav-link" href="vistas/conocenos.php">Conócenos</a>
             </li> 
             <li class="nav-item">
-              <a class="nav-link" href="#">Trabaja con Nosotros</a>
+              <a class="nav-link" href="vistas/trabajaConNosotros.php">Trabaja con Nosotros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Donaciones</a>
+              <a class="nav-link" href="vistas/donaciones.php">Donaciones</a>
             </li>  
           </ul>
         </nav>
         <nav class="navbar navbar-expand-sm navbar-dark bg-primary justify-content-center" >
           <ul class="navbar-nav ">
             <li class="nav-item">
-              <a class="nav-link" href="#"><img src="icons/twitter.png" alt="Twitter" width="30px"></a>
+              <a class="nav-link" href="https://www.twitter.com/"><img src="icons/twitter.png" alt="Twitter" width="30px"></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><img src="icons/facebook.png" alt="Facebook" width="30px"></a>
+              <a class="nav-link" href="https://www.facebook.com/"><img src="icons/facebook.png" alt="Facebook" width="30px"></a>
             </li>
           </ul>
         </nav>
