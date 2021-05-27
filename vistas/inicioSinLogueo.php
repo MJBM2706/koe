@@ -92,9 +92,6 @@
             <li class="nav-item">
             <a class="nav-link" href="#">Copyright© 2021</a> 
             </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Privacy Policy</a>
-            </li>
           </ul>
         </nav>
       </div>
