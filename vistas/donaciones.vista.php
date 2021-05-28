@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koe</title>
-    <link rel="icon" type="image/png" href="icons/koe.png">
+    <link rel="icon" type="image/png" href="../icons/koe.png">
     <link rel="stylesheet" type="text/css"  href="../css/bootstrap.css">
     <link rel="stylesheet" type="text/css"  href="../css/estilos.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -21,56 +21,35 @@
       </button>
       <div class="collapse navbar-collapse  justify-content-center" id="collapsibleNavbar">
         <ul class="navbar-nav ">
-          <li class="nav-item">
-            <a class="nav-link" href="../index.php"><img src="../icons/koe.png" alt="Logo" width="30px"></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="inicioSesion.vista.php">Inicia Sesión</a>
-          </li>
-          <li class="nav-item">
-            <a class="active nav-link" href="#">Regístrate</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="conocenos.vista.php">Conócenos</a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="trabajaConNosotros.vista.php">Trabaja con Nosotros</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="donaciones.vista.php">Donaciones</a>
-          </li>  
+            <li class="nav-item">
+                <a class="nav-link" href="../index.php"><img src="../icons/koe.png" alt="Home" width="30px"></a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link" href="inicioSesion.vista.php">Inicia Sesión</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="registro.vista.php">Regístrate</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="conocenos.vista.php">Conócenos</a>
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link" href="trabajaConNosotros.vista.php">Trabaja con Nosotros</a>
+            </li>
+            <li class="nav-item">
+                <a class="active nav-link" href="#">Donaciones</a>
+            </li>  
         </ul>
       </div>  
     </nav>
   </header>
-  <div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Tabs Titles -->
-
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="../icons/profile-user.png" id="icon" alt="User Icon" />
+  <div class="container">
+    <div class="row ">
+        <div class="col-md row-cols-sm-1 >">
+          <h1>Donaciones</h1>
+        </div> 
+      </div>
     </div>
-
-    <!-- Login Form -->
-    <form>
-      <input type="email" id="login" class="fadeIn second" name="login" placeholder="Correo Electrónico">
-      <input type="password" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
-      <input type="password" id="password" class="fadeIn third" name="login" placeholder="Repite tu contraseña">
-      <select name="Rol" id="Rol">
-          <option value="voluntario">Voluntario</option>
-          <option value="profesional">Profesional</option>
-          <option value="paciente">Paciente</option>
-      </select>
-      <input type="submit" class="fadeIn fourth" value="Siguiente">
-    </form>
-
-    <!-- Remind Passowrd -->
-    <div id="formFooter">
-      <a class="underlineHover" href="inicioSesion.vista.php">¿Ya tienes una cuenta?</a>
-    </div>
-  </div>
-</div>
     <footer>
       <div class="footer">
         <nav class="navbar navbar-expand-sm navbar-dark bg-primary justify-content-center" >
@@ -81,7 +60,7 @@
               <a class="nav-link" href="inicioSesion.vista.php">Inicia Sesión</a>
             </li>
             <li class="nav-item">
-              <a class="active nav-link" href="#">Regístrate</a>
+              <a class="nav-link" href="registro.vista.php">Regístrate</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="conocenos.vista.php">Conócenos</a>
@@ -90,17 +69,17 @@
               <a class="nav-link" href="trabajaConNosotros.vista.php">Trabaja con Nosotros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="donaciones.vista.php">Donaciones</a>
+              <a class="active nav-link" href="#">Donaciones</a>
             </li>  
           </ul>
         </nav>
         <nav class="navbar navbar-expand-sm navbar-dark bg-primary justify-content-center" >
           <ul class="navbar-nav ">
             <li class="nav-item">
-              <a class="nav-link" href="#"><img src="../icons/twitter.png" alt="Twitter" width="30px"></a>
+              <a class="nav-link" href="https://www.twitter.com/"><img src="../icons/twitter.png" alt="Twitter" width="30px"></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><img src="../icons/facebook.png" alt="Facebook" width="30px"></a>
+              <a class="nav-link" href="https://www.facebook.com/"><img src="../icons/facebook.png" alt="Facebook" width="30px"></a>
             </li>
           </ul>
         </nav>
@@ -108,9 +87,6 @@
           <ul class="navbar-nav ">
             <li class="nav-item">
             <a class="nav-link" href="#">Copyright© 2021</a> 
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Privacy Policy</a>
             </li>
           </ul>
         </nav>

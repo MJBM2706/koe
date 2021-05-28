@@ -6,7 +6,7 @@ if ($_SESSION)
    
     
 } else {
-    require('vistas/inicioSinLogueo.php');
+    require('vistas/inicioSinLogueo.vista.php');
 }
 
 

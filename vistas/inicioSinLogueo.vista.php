@@ -22,19 +22,19 @@
       <div class="collapse navbar-collapse  justify-content-center" id="collapsibleNavbar">
         <ul class="navbar-nav ">
           <li class="nav-item">
-            <a class="nav-link" href="vistas/inicioSesion.php">Inicia Sesión</a>
+            <a class="nav-link" href="vistas/inicioSesion.vista.php">Inicia Sesión</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="vistas/registro.php">Regístrate</a>
+            <a class="nav-link" href="vistas/registro.vista.php">Regístrate</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="vistas/conocenos.php">Conócenos</a>
+            <a class="nav-link" href="vistas/conocenos.vista.php">Conócenos</a>
           </li> 
           <li class="nav-item">
-            <a class="nav-link" href="vistas/trabajaConNosotros.php">Trabaja con Nosotros</a>
+            <a class="nav-link" href="vistas/trabajaConNosotros.vista.php">Trabaja con Nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="vistas/donaciones.php">Donaciones</a>
+            <a class="nav-link" href="vistas/donaciones.vista.php">Donaciones</a>
           </li>  
         </ul>
       </div>  
@@ -61,19 +61,19 @@
         
           <ul class="navbar-nav ">
             <li class="nav-item">
-              <a class="nav-link" href="vistas/inicioSesion.php">Inicia Sesión</a>
+              <a class="nav-link" href="vistas/inicioSesion.vista.php">Inicia Sesión</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="vistas/registro.php">Regístrate</a>
+              <a class="nav-link" href="vistas/registro.vista.php">Regístrate</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="vistas/conocenos.php">Conócenos</a>
+              <a class="nav-link" href="vistas/conocenos.vista.php">Conócenos</a>
             </li> 
             <li class="nav-item">
-              <a class="nav-link" href="vistas/trabajaConNosotros.php">Trabaja con Nosotros</a>
+              <a class="nav-link" href="vistas/trabajaConNosotros.vista.php">Trabaja con Nosotros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="vistas/donaciones.php">Donaciones</a>
+              <a class="nav-link" href="vistas/donaciones.vista.php">Donaciones</a>
             </li>  
           </ul>
         </nav>

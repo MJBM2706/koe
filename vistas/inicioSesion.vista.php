@@ -22,19 +22,22 @@
       <div class="collapse navbar-collapse  justify-content-center" id="collapsibleNavbar">
         <ul class="navbar-nav ">
           <li class="nav-item">
-            <a class="nav-link" href="#">Inicia Sesión</a>
+              <a class="nav-link" href="../index.php"><img src="../icons/koe.png" alt="Logo" width="30px"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=" ">Registrate</a>
+            <a class="active nav-link" href="#">Inicia Sesión</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Conócenos</a>
+            <a class="nav-link" href="registro.vista.php">Registrate</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="conocenos.vista.php">Conócenos</a>
           </li> 
           <li class="nav-item">
-            <a class="nav-link" href="#">Trabaja con Nosotros</a>
+            <a class="nav-link" href="trabajaConNosotros.vista.php">Trabaja con Nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Donaciones</a>
+            <a class="nav-link" href="donaciones.vista.php">Donaciones</a>
           </li>  
         </ul>
       </div>  
@@ -58,8 +61,8 @@
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="#">¿Olvidaste tu contraseña?</a>
-      <a class="underlineHover" href="#">¿No tienes una cuenta? Regístrate</a>
+      <a class="underlineHover" href="recuperarPassword.vista.php">¿Olvidaste tu contraseña?</a>
+      <a class="underlineHover" href="registro.vista.php">¿No tienes una cuenta? Regístrate</a>
     </div>
   </div>
 </div>
@@ -70,19 +73,19 @@
         
           <ul class="navbar-nav ">
             <li class="nav-item">
-              <a class="nav-link" href="#">Inicia Sesión</a>
+              <a class="active nav-link" href="#">Inicia Sesión</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href=" ">Registrate</a>
+              <a class="nav-link" href="registro.vista.php">Registrate</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Conócenos</a>
+              <a class="nav-link" href="conocenos.vista.php">Conócenos</a>
             </li> 
             <li class="nav-item">
-              <a class="nav-link" href="#">Trabaja con Nosotros</a>
+              <a class="nav-link" href="trabajaConNosotros.vista.php">Trabaja con Nosotros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Donaciones</a>
+              <a class="nav-link" href="donaciones.vista.php">Donaciones</a>
             </li>  
           </ul>
         </nav>
