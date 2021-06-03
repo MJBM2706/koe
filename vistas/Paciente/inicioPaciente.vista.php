@@ -60,7 +60,7 @@
         <nav class="navbar navbar-expand-sm navbar-dark bg-primary justify-content-center" >
           <ul class="navbar-nav ">
             <li class="nav-item">
-              <a class="nav-link" href="#"><img src="../icons/twitter.png" alt="Twitter" width="30px"></a>
+              <a class="nav-link" href="#"><img src="../../icons/twitter.png" alt="Twitter" width="30px"></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#"><img src="../icons/facebook.png" alt="Facebook" width="30px"></a>
