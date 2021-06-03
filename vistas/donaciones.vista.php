@@ -38,6 +38,7 @@
             </li>
             <li class="nav-item">
                 <a class="active nav-link" href="#">Donaciones</a>
+                <p>hola putitooooos muajajajajajajjajajajajajaja</p>
             </li>  
         </ul>
       </div>  
