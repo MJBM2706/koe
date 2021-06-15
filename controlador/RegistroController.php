@@ -1,9 +1,9 @@
 <?php
-// session_start();
-// if (isset($_SESSION['usuario'])) {
-//     header('Location: index.php');
-//     die();
-// }
+ session_start();
+ if (isset($_SESSION['correo'])) {
+     header('Location: ../vista/paciente/inicio.php');
+   die();
+}
 require_once('../utilidades/metodosBD.php');
 $metodosBD = new MetodosBD();
 
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         //Si el resultado es diferente de falso significa que ya existe el usuario
 
-        if ($resultado != false) {
+        if ($resultado != null) {
             echo'<script type="text/javascript">
             alert("El correo electrónico ya está registrado");
             </script>';
@@ -71,6 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 
-require_once('../vista/registro.php');
+require('../vista/registro.php');
 
 ?>
