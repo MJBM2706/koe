@@ -1,5 +1,7 @@
 <?php
 
+
+
 class Usuario
 {
     //Variables o atributos

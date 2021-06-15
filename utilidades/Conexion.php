@@ -1,13 +1,26 @@
-
 <?php
-//Aquí creo la conexion con la base de datos 
-class Conexion{
-    private $con;
-    public function __construct()
-    {
-        $this->con = new mysqli('localhost','root','','id17038902_koe');
+class Conexion {
+
+    public function __construct(){
+
     }
 
-    //Se crean los métodos para el CRUD de la base de datos
+  public function conexion() {
+    try {
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $db_name = "id17038902_koe";
+
+        $conn = new mysqli($servername, $username, $password, $db_name);
+        if ($conn -> connect_errno) {
+          echo "Failed to connect to MySQL: " . $conn -> connect_error;
+      } else {
+          return $conn;
+      }
+    } catch (Exception $error) {
+      return false; 
+    }
+  }
 }
 ?>

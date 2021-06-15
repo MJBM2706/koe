@@ -7,8 +7,7 @@ if ($_SESSION)
     
 } else {
     require('vistas/inicioSinLogueo.vista.php');
-} */
-
+} 
 
 //Incluyo los archivos necesarios
 require("./modelo/Coche.php");
@@ -19,6 +18,15 @@ $controller = new CocheController;
 
 //Ejecuto el método
 $controller->index();
+
+*/
+
+
+
+
+
+
+
 
 
 

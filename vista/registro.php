@@ -53,15 +53,10 @@
     </div>
 
     <!-- Login Form -->
-    <form>
+    <form >
       <input type="email" id="login" class="fadeIn second" name="login" placeholder="Correo Electrónico">
       <input type="password" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
       <input type="password" id="password" class="fadeIn third" name="login" placeholder="Repite tu contraseña">
-      <select name="Rol" id="Rol">
-          <option value="voluntario">Voluntario</option>
-          <option value="profesional">Profesional</option>
-          <option value="paciente">Paciente</option>
-      </select>
       <input type="submit" class="fadeIn fourth" value="Siguiente">
     </form>
 
