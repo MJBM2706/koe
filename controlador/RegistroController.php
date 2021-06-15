@@ -4,39 +4,33 @@
 //     header('Location: index.php');
 //     die();
 // }
-require_once('utilidades/metodosBD.php');
+require_once('../utilidades/metodosBD.php');
 $metodosBD = new MetodosBD();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //Validamos que los datos hayan sido rellenados
-    $usuario = filter_var(strtolower($_POST['usuario']),FILTER_SANITIZE_STRING);
+    $correo = filter_var(strtolower($_POST['correo']),FILTER_SANITIZE_STRING);
     $password = $_POST['password'];
     $password2 = $_POST['password2'];
     $errores = '';
-    if (empty($usuario) or empty($password) or empty($password2)) {
-
-        $errores = '<li>Por favor rellena todos lo campos correctamente</li>';
+    if (empty($correo) or empty($password) or empty($password2)) {
+        echo'<script type="text/javascript">
+        alert("Tienes que llenar todos los campos");
+        </script>';
+        
+        $errores = 'Llena todos los campos';
     } else {
 
-        try {
-            $conexion = new PDO('mysql:host=localhost;dbname=curso_login', 'root','');
-            
-        } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
-        }
-
-        $statement = $conexion->prepare('SELECT * FROM usuarios WHERE usuario = :usuario LIMIT 1');
-        $statement->execute(array(':usuario' => $usuario));
-
-        //El método fetch nos va a traer true si el usuario ya existe o false sino existe.
-
-        $resultado = $statement->fetch();
+        $resultado = $metodosBD->validarCorreo($correo);
 
         //Si el resultado es diferente de falso significa que ya existe el usuario
 
         if ($resultado != false) {
-
-            $errores = '<li>El nombre de usuario ya existe</li>';
+            echo'<script type="text/javascript">
+            alert("El correo electrónico ya está registrado");
+            </script>';
+            
+            $errores = 'Correo ya registrado';
         }
 
         //Ahora vamos a "hashear" la contraseña para protegerla un poco.
@@ -49,23 +43,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //Ahora tenemos que comprobar que las contraseñas sean  iguales
 
         if ($password != $password2) {
-            $errores = '<li>Las contraseñas no son iguales.</li>';
+            echo'<script type="text/javascript">
+            alert("Las contraseñas no son iguales");
+            </script>';
+            
+            $errores = 'Las contraseñas no son iguales';
         }
 
     }
 
     if ($errores == '') {
 
-        $nuevo=$metodosBD->crearUsuario('Luis','123');
-        $usuario=$metodosBD->consultarIdUsuario('Luis','123');
+        $nuevo=$metodosBD->crearUsuario($correo,$password);
+        $usuario=$metodosBD->consultarIdUsuario($correo,$password);
         $idUsuario = (int)$usuario[0]['idUsuario'];
         $aux = $metodosBD->crearPaciente($idUsuario);
         if ($aux) {
-            header("Location: vista/inicio_sesion.php");
+            header("Location:../vista/inicio_sesion.php");
     
         }
-    //Después de registrar al usuario redirigimos para que inicie sesión.
-        require_once('../vista/registro.php');
+            //Después de registrar al usuario redirigimos para que inicie sesión.
+        
 
         
     }
@@ -73,6 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 
-    
+require_once('../vista/registro.php');
 
 ?>

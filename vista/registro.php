@@ -54,9 +54,9 @@
 
     <!-- Login Form -->
     <form action="../controlador/RegistroController.php" method="post" >
-      <input type="email" id="login" class="fadeIn second" name="login" placeholder="Correo Electrónico">
-      <input type="password" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
-      <input type="password" id="password" class="fadeIn third" name="login" placeholder="Repite tu contraseña">
+      <input type="email" id="correo" class="fadeIn second" name="correo" placeholder="Correo Electrónico" >
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="Contraseña" >
+      <input type="password" id="password2" class="fadeIn third" name="password2" placeholder="Repite tu contraseña" >
       <input type="submit" class="fadeIn fourth" value="Siguiente">
     </form>
 
