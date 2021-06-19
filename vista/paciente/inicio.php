@@ -36,7 +36,7 @@
             <a class="nav-link" href="donaciones.vista.php">Donaciones</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Cerrar Sesión</a>
+            <a class="nav-link" href="../../controlador/cerrar.php">Cerrar Sesión</a>
           </li>
         </ul>
       </div>

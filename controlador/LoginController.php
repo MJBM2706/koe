@@ -58,11 +58,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($errores == '') {
         $idUsuario = $metodosBD->consultarIdUsuario($correo,$password);
 
-            header("Location:../vista/paciente/inicio.php");
+           
             $_SESSION['correo'] = $correo;
             $_SESSION['idUsuario'] = $idUsuario;
             $_SESSION['password'] = $password;
             $_SESSION['tipo'] = "paciente";
+            header("Location:../vista/paciente/inicio.php");
             //Después de iniciar sesión redirigimos a la página de inicio
         
 
