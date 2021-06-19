@@ -25,7 +25,7 @@
             <a class="nav-link" href="../index.php"><img src="../icons/koe.png" alt="Logo" width="30px"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="inicioSesion.vista.php">Inicia Sesión</a>
+            <a class="nav-link" href="../controlador/LoginController.php">Inicia Sesión</a>
           </li>
           <li class="nav-item">
             <a class="active nav-link" href="#">Regístrate</a>

@@ -4,6 +4,20 @@ require 'Conexion.php';
 class MetodosBD{
     private $conn;
 
+    function iniciarSesion($correo,$password){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $existe=$resultado->query("SELECT EXISTS(SELECT idUsuario FROM usuario WHERE correo='$correo' AND password='$password');");
+        $row=mysqli_fetch_row($existe);
+
+        if ($row[0]=="1") {                 
+
+            return true;
+        }else{
+           return false;
+        }
+    }
+
     function validarCorreo($correo){
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();

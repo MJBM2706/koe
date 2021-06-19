@@ -53,8 +53,8 @@
     </div>
 
     <!-- Login Form -->
-    <form>
-      <input type="email" id="login" class="fadeIn second" name="login" placeholder="Correo Electrónico">
+    <form action="../controlador/LoginController.php" method="post">
+      <input type="email" id="correo" class="fadeIn second" name="login" placeholder="Correo Electrónico">
       <input type="password" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
@@ -76,7 +76,7 @@
               <a class="active nav-link" href="#">Inicia Sesión</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="registro.vista.php">Registrate</a>
+              <a class="nav-link" href="../controlador/RegistroController.php">Registrate</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="conocenos.vista.php">Conócenos</a>
