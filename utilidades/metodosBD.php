@@ -7,9 +7,16 @@ class MetodosBD{
     function validarCorreo($correo){
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();
-        $existe = $resultado->query("SELECT idUsuario FROM usuario WHERE correo='$correo' LIMIT 1");
-        $existe->fetch_all();
-        return $existe;
+        $existe=$resultado->query("SELECT EXISTS (SELECT idUsuario FROM usuario WHERE correo='$correo');");
+        $row=mysqli_fetch_row($existe);
+
+        if ($row[0]=="1") {                 
+
+            return true;
+        }else{
+           return false;
+        }
+        
 
     }
 

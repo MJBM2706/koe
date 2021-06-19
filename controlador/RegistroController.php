@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         //Si el resultado es diferente de falso significa que ya existe el usuario
 
-        if ($resultado != null) {
+        if ($resultado != false) {
             echo'<script type="text/javascript">
             alert("El correo electrónico ya está registrado");
             </script>';
