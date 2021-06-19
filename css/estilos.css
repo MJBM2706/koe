@@ -238,3 +238,45 @@
     margin: 15px;
   }
   
+
+  /* Pagina Inicio- Paciente, Profesional, Voluntario */
+  .container {
+    min-height: 600px;
+    display: flex;
+    margin: 0;
+    margin: 4rem 0;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  }
+
+  .option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100px;
+    width: 150px;
+    background-color: #120E3C;
+    margin: 1rem 0;
+    padding: 1rem 0;
+  }
+
+  .option > * {
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.8rem;
+  }
+
+  .icon {
+    width: 3rem;
+    height: 3rem;
+  }

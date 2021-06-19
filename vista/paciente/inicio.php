@@ -40,7 +40,41 @@
       </div>  
     </nav>
   </header>
-  
+
+  <div class="container">
+    <section class="sidebar">
+      <ul>
+        <li class='option'>
+          <img class="icon" src="../../icons/house.png" alt="" srcset="">
+          <p>Inicio</p>
+        </li>
+        <li class='option'>
+        <img class="icon" src="../../icons/user.png" alt="" srcset="">
+          <p>Mi Cuenta</p>
+        </li>
+        <li class='option'>
+        <img class="icon" src="../../icons/message.png" alt="" srcset="">
+          <p>Mensajes</p>
+        </li>
+        <li class='option'>
+        <img class="icon" src="../../icons/medical_record.png" alt="" srcset="">
+          <p>Historial Clinico</p>
+        </li>
+        <li class='option'>
+        <img class="icon" src="../../icons/appointment.png" alt="" srcset="">
+          <p>Citas</p>
+        </li>
+      </ul>
+    </section>
+    <aside class="content">
+      <h2>Bienvenido, @username</h2>
+      <p>El equipo de Koe te agradece por escogernos para ayudarte a alcanzar el bienestar que te mereces.</p>
+      <p>Para empezar pide una cita o si es una emergencia haz <a href="#">click aqui</a></p>
+      <img src="../../img/bienestar.jpg" alt="">
+    </aside>
+  </div>
+
+
     <footer>
       <div class="footer">
         <nav class="navbar navbar-expand-sm navbar-dark bg-primary justify-content-center" >
