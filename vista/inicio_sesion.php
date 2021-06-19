@@ -28,7 +28,7 @@
             <a class="active nav-link" href="#">Inicia Sesión</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="registro.vista.php">Registrate</a>
+            <a class="nav-link" href="../controlador/RegistroController.php">Registrate</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="conocenos.vista.php">Conócenos</a>
@@ -54,15 +54,15 @@
 
     <!-- Login Form -->
     <form action="../controlador/LoginController.php" method="post">
-      <input type="email" id="correo" class="fadeIn second" name="login" placeholder="Correo Electrónico">
-      <input type="password" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
+      <input type="email" id="correo" class="fadeIn second" name="correo" placeholder="Correo Electrónico">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="Contraseña">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="recuperarPassword.vista.php">¿Olvidaste tu contraseña?</a>
-      <a class="underlineHover" href="registro.vista.php">¿No tienes una cuenta? Regístrate</a>
+      <a class="underlineHover" href="#">¿Olvidaste tu contraseña?</a>
+      <a class="underlineHover" href="../controlador/RegistroController.php">¿No tienes una cuenta? Regístrate</a>
     </div>
   </div>
 </div>

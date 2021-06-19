@@ -61,10 +61,10 @@
         
           <ul class="navbar-nav ">
             <li class="nav-item">
-              <a class="nav-link" href="../vista/inicio_sesion.php">Inicia Sesión</a>
+              <a class="nav-link" href="../controlador/LoginController.php">Inicia Sesión</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../vista/registro.php">Regístrate</a>
+              <a class="nav-link" href="../controlador/RegistroController.php">Regístrate</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../vista/conocenos.php">Conócenos</a>
