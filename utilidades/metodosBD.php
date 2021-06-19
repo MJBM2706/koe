@@ -4,6 +4,34 @@ require 'Conexion.php';
 class MetodosBD{
     private $conn;
 
+    function tipoUsuario($idUsuario){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $existe=$resultado->query("SELECT COUNT(*)  FROM paciente WHERE usuario_idUsuario = '$idUsuario' ;");
+        $row=mysqli_fetch_assoc($existe);
+
+        if ($existe == 1) {                 
+
+            $tipo = 'paciente';
+        }else{
+            $existe=$resultado->query("SELECT COUNT(*)  FROM profesional WHERE usuario_idUsuario = '$idUsuario' ;");
+           if($existe == 1){
+            $tipo = 'profesional';
+           }else{
+            $existe=$resultado->query("SELECT COUNT(*)  FROM voluntario WHERE usuario_idUsuario = '$idUsuario' ;");
+            if($existe == 1){
+             $tipo = 'voluntario';
+            }else{
+                $tipo = 'admin';
+            }
+           }
+            
+        }
+
+        return $tipo;
+
+    }
+
     function iniciarSesion($correo,$password){
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();

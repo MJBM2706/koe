@@ -1,34 +1,26 @@
 <?php
-/* session_start();
+ session_start();
+ if (isset($_SESSION['correo'])) {
+   if($_SESSION['tipo'] == "paciente"){
+    header('Location: ../vista/paciente/inicio.php');
+   }else if($_SESSION['tipo'] == "voluntario"){
 
-if ($_SESSION) 
-{
-   
-    
-} else {
-    require('vistas/inicioSinLogueo.vista.php');
-} 
+    header('Location: ../vista/voluntario/inicio.php');
 
-//Incluyo los archivos necesarios
-require("./modelo/Coche.php");
-require("./controlador/CocheController.php");
+   }else if($_SESSION['tipo'] == "profesional"){
 
-//Instancio el controlador
-$controller = new CocheController;
+    header('Location: vista/profesional/inicio.php');
 
-//Ejecuto el método
-$controller->index();
+   }else{
 
-*/
+    header('Location: vista/Admin/inicio.php');
 
-
-
-
-
-
-
-
-
-
-
+   }
+     
+   die();
+}else{
+    header('Location: vista/inicio_sin_logueo.php');
+}
 ?>
+
+
