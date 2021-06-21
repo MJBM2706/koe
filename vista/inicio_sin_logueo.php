@@ -1,27 +1,3 @@
-
-<?php
- session_start();
- if (isset($_SESSION['correo'])) {
-   if($_SESSION['tipo'] == "paciente"){
-    header('Location: paciente/inicio.php');
-   }else if($_SESSION['tipo'] == "voluntario"){
-
-    header('Location: voluntario/inicio.php');
-
-   }else if($_SESSION['tipo'] == "profesional"){
-
-    header('Location: profesional/inicio.php');
-
-   }else{
-
-    header('Location: admin/inicio.php');
-
-   }
-     
-   die();
-}else {
-  ?>
-
   <!DOCTYPE html>
   <html lang="es">
   <head>
@@ -126,6 +102,4 @@
   </body>
   
   </html>
-  <?php
-}
-?>
+

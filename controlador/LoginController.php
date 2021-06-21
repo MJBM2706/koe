@@ -1,25 +1,5 @@
 <?php
 session_start();
-if (isset($_SESSION['correo'])) {
-    echo $_SESSION['tipo'];
-    if($_SESSION['tipo'] == "paciente"){
-     header('Location: ../vista/paciente/inicio.php');
-    }else if($_SESSION['tipo'] == "voluntario"){
- 
-     header('Location: ../vista/voluntario/inicio.php');
- 
-    }else if($_SESSION['tipo'] == "profesional"){
- 
-     header('Location: ../vista/profesional/inicio.php');
- 
-    }else{
- 
-     header('Location: ../vista/Admin/inicio.php');
- 
-    }
-      
-    die();
- }else{
     require_once('../utilidades/metodosBD.php');
     $metodosBD = new MetodosBD();
     
@@ -73,23 +53,16 @@ if (isset($_SESSION['correo'])) {
     
         if ($errores == '') {
             $idUsuario = $metodosBD->consultarIdUsuario($correo,$password);
+            echo $idUsuario;
             $tipo = $metodosBD->tipoUsuario($idUsuario);
+            echo "Esto es $tipo";
     
                
                 $_SESSION['correo'] = $correo;
                 $_SESSION['idUsuario'] = $idUsuario;
                 $_SESSION['password'] = $password;
                 $_SESSION['tipo'] = $tipo;
-                echo $tipo;
-                if( $tipo == 'paciente'){
-                    header("Location:../vista/paciente/inicio.php");
-                }else if($tipo == 'voluntario'){
-                    header("Location:../vista/voluntario/inicio.php");
-                }else if($tipo == 'profesional'){
-                    header("Location:../vista/profesional/inicio.php");
-                }else{
-                    header("Location:../vista/admin/inicio.php");
-                }
+                
                 
                 //Después de iniciar sesión redirigimos a la página de inicio
             
@@ -101,7 +74,6 @@ if (isset($_SESSION['correo'])) {
     
     
     require('../vista/inicio_sesion.php');
- }
 
 
 ?>

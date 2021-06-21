@@ -1,9 +1,7 @@
--- phpMyAdmin SQL Dump
--- version 5.0.2
--- https://www.phpmyadmin.net/
+
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-06-2021 a las 02:41:17
+-- Tiempo de generación: 22-06-2021 a las 01:19:43
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -85,6 +83,13 @@ CREATE TABLE `paciente` (
   `fechaNacimiento` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `paciente`
+--
+
+INSERT INTO `paciente` (`idPaciente`, `usuario_idUsuario`, `nombre`, `apellido`, `telefono`, `fechaNacimiento`) VALUES
+(15, 20, NULL, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -110,6 +115,7 @@ CREATE TABLE `profesional` (
 
 CREATE TABLE `usuario` (
   `idUsuario` bigint(20) NOT NULL,
+  `tipoUsuario` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `correo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -118,8 +124,9 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`idUsuario`, `correo`, `password`) VALUES
-(3, 'Admin', '1234567890');
+INSERT INTO `usuario` (`idUsuario`, `tipoUsuario`, `correo`, `password`) VALUES
+(20, 'paciente', 'majo.botero.m.123@gmail.com', '2706'),
+(21, 'admin', 'admin@admin.com', 'admin123456789');
 
 -- --------------------------------------------------------
 
@@ -207,13 +214,13 @@ ALTER TABLE `consulta_paga`
 -- AUTO_INCREMENT de la tabla `paciente`
 --
 ALTER TABLE `paciente`
-  MODIFY `idPaciente` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idPaciente` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Restricciones para tablas volcadas

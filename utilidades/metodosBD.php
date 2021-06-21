@@ -7,27 +7,9 @@ class MetodosBD{
     function tipoUsuario($idUsuario){
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();
-        $existe=$resultado->query("SELECT COUNT(*)  FROM paciente WHERE usuario_idUsuario = '$idUsuario' ;");
-        $row=mysqli_fetch_assoc($existe);
-
-        if ($existe == 1) {                 
-
-            $tipo = 'paciente';
-        }else{
-            $existe=$resultado->query("SELECT COUNT(*)  FROM profesional WHERE usuario_idUsuario = '$idUsuario' ;");
-           if($existe == 1){
-            $tipo = 'profesional';
-           }else{
-            $existe=$resultado->query("SELECT COUNT(*)  FROM voluntario WHERE usuario_idUsuario = '$idUsuario' ;");
-            if($existe == 1){
-             $tipo = 'voluntario';
-            }else{
-                $tipo = 'admin';
-            }
-           }
-            
-        }
-
+        $existe=$resultado->query("SELECT tipoUsuario FROM usuario WHERE idUsuario='$idUsuario';");
+        $row=mysqli_fetch_row($existe);
+        $tipo = $row[0];
         return $tipo;
 
     }
@@ -65,7 +47,7 @@ class MetodosBD{
     function crearUsuario($correo,$pass){
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();
-        $resultado->query("INSERT INTO usuario (idUsuario,correo,password) VALUES (null,'$correo','$pass')");
+        $resultado->query("INSERT INTO usuario (idUsuario,tipoUsuario,correo,password) VALUES (null,'paciente','$correo','$pass')");
 
     }
 
