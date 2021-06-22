@@ -267,7 +267,7 @@ select {
 }
 
 /* Pagina Inicio- Paciente, Profesional, Voluntario  START*/
-.container {
+.contenedor {
   min-height: 600px;
   display: flex;
   margin: 0;

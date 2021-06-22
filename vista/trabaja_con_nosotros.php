@@ -60,13 +60,13 @@
       </div>  
     </nav>
   </header>
-<div class="container">
+<div class="wrapper">
   <div class="col-md col-sm ">
     <p class="h1">Trabaja con nosotros</p>
     <p class="h4">  <i class="fas fa-phone"> </i> Numero: 3046783977 </p>
     <p class="h4"> <i class="fas fa-envelope"> </i>  Correo: koe@gmail.com</p>
     <!--formulario--> 
-    <div class="container">
+    <div class="wrapper">
       <div class="col-md col-sm">
         <h2>Formulario de contacto</h2>
 
@@ -89,7 +89,9 @@
             <textarea class="form-control" name="comentarios" id="comentarios" 
             placeholder="Escriba sus comentarios" cols="30" rows="10"></textarea>
           </div>
-          <input type="submit" name="enviar" id="enviar" value="Enviar formulario">
+          <div class=" wrapper form-group">
+          <input class="wrapper" type="submit" name="enviar" id="enviar" value="Enviar formulario">
+          </div>
         </form>
       </div>
     </div>
