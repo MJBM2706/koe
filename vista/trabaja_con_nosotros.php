@@ -42,19 +42,19 @@
                 <a class="nav-link" href="../index.php"><img src="../icons/koe.png" alt="Home" width="30px"></a>
             </li>
             <li class="nav-item">
-                    <a class="nav-link" href="inicioSesion.vista.php">Inicia Sesión</a>
+                    <a class="nav-link" href="../controlador/LoginController.php">Inicia Sesión</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="registro.vista.php">Regístrate</a>
+                <a class="nav-link" href="../controlador/RegistroController.php">Regístrate</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="conocenos.vista.php">Conócenos</a>
+                <a class="nav-link" href="conocenos.php">Conócenos</a>
             </li> 
             <li class="nav-item">
-                <a class="active nav-link" href="trabajaConNosotros.vista.php">Trabaja con Nosotros</a>
+                <a class="active nav-link" href="#">Trabaja con Nosotros</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="donaciones.vista.php">Donaciones</a>
+                <a class="nav-link" href="donaciones.php">Donaciones</a>
             </li>  
         </ul>
       </div>  
@@ -63,7 +63,7 @@
 <div class="wrapper">
   <div class="col-md col-sm ">
     <p class="h1">Trabaja con nosotros</p>
-    <p class="h4">  <i class="fas fa-phone"> </i> Numero: 3046783977 </p>
+    <p class="h4">  <i class="fas fa-phone"> </i> Numero: 3002427778 </p>
     <p class="h4"> <i class="fas fa-envelope"> </i>  Correo: koe@gmail.com</p>
     <!--formulario--> 
     <div class="wrapper">
@@ -105,19 +105,19 @@
         
           <ul class="navbar-nav ">
             <li class="nav-item">
-              <a class="nav-link" href="inicioSesion.vista.php">Inicia Sesión</a>
+              <a class="nav-link" href="../controlador/LoginController.php">Inicia Sesión</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="registro.vista.php">Regístrate</a>
+              <a class="nav-link" href="../controlador/RegistroController.php">Regístrate</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="conocenos.vista.php">Conócenos</a>
+              <a class="nav-link" href="conocenos.php">Conócenos</a>
             </li> 
             <li class="nav-item">
               <a class="active nav-link" href="#">Trabaja con Nosotros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="donaciones.vista.php">Donaciones</a>
+              <a class="nav-link" href="donaciones..php">Donaciones</a>
             </li>  
           </ul>
         </nav>
