@@ -25,16 +25,16 @@
                 <a class="nav-link" href="../index.php"><img src="../icons/koe.png" alt="Home" width="30px"></a>
             </li>
             <li class="nav-item">
-                    <a class="nav-link" href="inicioSesion.vista.php">Inicia Sesión</a>
+                    <a class="nav-link" href="../controlador/LoginController.php">Inicia Sesión</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="registro.vista.php">Regístrate</a>
+                <a class="nav-link" href="../controlador/RegistroController.php">Regístrate</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="conocenos.vista.php">Conócenos</a>
+                <a class="nav-link" href="conocenos.php">Conócenos</a>
             </li> 
             <li class="nav-item">
-                <a class="nav-link" href="trabajaConNosotros.vista.php">Trabaja con Nosotros</a>
+                <a class="nav-link" href="trabajaConNosotros.php">Trabaja con Nosotros</a>
             </li>
             <li class="nav-item">
                 <a class="active nav-link" href="#">Donaciones</a>
@@ -43,44 +43,38 @@
       </div>  
     </nav>
   </header>
-  <div class="container">
-    <div class="row ">
-        <div class="col-md row-cols-sm-1 >">
-          <h1>Donaciones</h1>
-        </div> 
+  <div class="contenedor">
+    <div class="container">
+      <div class="col-md row-cols-sm-1 >">
+        <h1>Donaciones</h1>        
+        <h4>¡Ayúdanos!</h4> 
+        <div width="250px" class="wrapper">
+          <form action="https://www.paypal.com/donate" method="post" target="_top">
+                <input type="hidden" name="hosted_button_id" value="QEM5YMT8R746W" />
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                <img alt="" border="0" src="https://www.paypal.com/en_CO/i/scr/pixel.gif"  />
+          </form>
+        </div>
       </div>
     </div>
-
-    <div class="contenedor">
-  ¡Ayúdanos!
-  <br/>
-
-  <form action="https://www.paypal.com/donate" method="post" target="_top">
-<input type="hidden" name="hosted_button_id" value="QEM5YMT8R746W" />
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-<img alt="" border="0" src="https://www.paypal.com/en_CO/i/scr/pixel.gif" width="1" height="1" />
-</form>
-
-</div>
-    
-    
-    <footer>
-      <div class="footer">
-        <nav class="navbar navbar-expand-sm navbar-dark bg-primary justify-content-center" >
+    </div>    
+  <footer>
+    <div class="footer">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-primary justify-content-center" >
         
         
           <ul class="navbar-nav ">
             <li class="nav-item">
-              <a class="nav-link" href="inicioSesion.vista.php">Inicia Sesión</a>
+              <a class="nav-link" href="../controlador/LoginController.php">Inicia Sesión</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="registro.vista.php">Regístrate</a>
+              <a class="nav-link" href="../controlador/RegistroController.php">Regístrate</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="conocenos.vista.php">Conócenos</a>
+              <a class="nav-link" href="conocenos.php">Conócenos</a>
             </li> 
             <li class="nav-item">
-              <a class="nav-link" href="trabajaConNosotros.vista.php">Trabaja con Nosotros</a>
+              <a class="nav-link" href="trabajaConNosotros.php">Trabaja con Nosotros</a>
             </li>
             <li class="nav-item">
               <a class="active nav-link" href="#">Donaciones</a>

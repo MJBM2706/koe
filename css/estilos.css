@@ -270,8 +270,9 @@ select {
 .contenedor {
   min-height: 600px;
   display: flex;
-  margin: 0;
+  margin: 10px;
   margin: 4rem 0;
+  
 }
 
 .sidebar {
