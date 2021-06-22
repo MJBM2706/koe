@@ -53,9 +53,7 @@ session_start();
     
         if ($errores == '') {
             $idUsuario = $metodosBD->consultarIdUsuario($correo,$password);
-            echo $idUsuario;
             $tipo = $metodosBD->tipoUsuario($idUsuario);
-            echo "Esto es $tipo";
     
                
                 $_SESSION['correo'] = $correo;

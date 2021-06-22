@@ -7,9 +7,12 @@ class MetodosBD{
     function tipoUsuario($idUsuario){
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();
-        $existe=$resultado->query("SELECT tipoUsuario FROM usuario WHERE idUsuario='$idUsuario';");
-        $row=mysqli_fetch_row($existe);
-        $tipo = $row[0];
+        $resultado=$resultado->query("SELECT tipoUsuario FROM usuario WHERE idUsuario='$idUsuario';");
+        for ($num_fila = 0; $num_fila <= $resultado->num_rows; $num_fila ++) {
+            $resultado->data_seek($num_fila);
+            $fila = $resultado->fetch_assoc();
+            $tipo = $fila['tipoUsuario'];
+        }
         return $tipo;
 
     }

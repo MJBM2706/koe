@@ -46,8 +46,12 @@
   <div class="container">
     <div class="row ">
         <div class="col-md row-cols-sm-1 >">
-          <h1>Conócenos</h1>
+        <img src="../img/logoCuadrado.png" alt="Logo" width="70%">
         </div> 
+<div class="cotainter">
+<h1 class="h1">Conócenos</h1>
+        <p>En koe nos preocupamos por tu bienestar, atendiendo tus urgencias o necesidades al momento</p>
+</div>
       </div>
     </div>
     <footer>

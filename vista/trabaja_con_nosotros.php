@@ -8,9 +8,26 @@
     <link rel="icon" type="image/png" href="../icons/koe.png">
     <link rel="stylesheet" type="text/css"  href="../css/bootstrap.css">
     <link rel="stylesheet" type="text/css"  href="../css/estilos.css">
+    <script src="https://kit.fontawesome.com/61afc60e6b.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+    .fa-envelope{
+    font-size:25px;
+    }
+    </style>
+    <style>
+    .fa-phone{
+    font-size:25px;
+    }
+    </style>
+    <style>
+    .fa-user-tie{
+     font-size:25px;
+    }
+    </style>
+
 </head>
 <body>
   <header>
@@ -46,10 +63,64 @@
   <div class="container">
     <div class="row ">
         <div class="col-md row-cols-sm-1 >">
-          <h1>Trabaja con nosotros</h1>
-        </div> 
-      </div>
+          <h1>Trabaja con nosotros</h1><br>
+          <div class="container">
+            <label class="h4">  <i class="fas fa-phone"> </i> Numero: 3046783977 </label><br>
+            <label class="h4"> <i class="fas fa-envelope"> </i>  Correo: koe@gmail.com</label>
+              <!--formulario--> 
+ <div class="container">
+    <div class="row ">
+        <div class="col-md row-cols-sm-1 >">
+          <h2>Formulario de contacto</h2><br>
+<div class="container">
+          <form action="procesar_formulario.php" method="post">
+
+          <div class="form-group">                      
+            <label class=h4 for="nombrecompleto" >Nombre completo: </label>
+            <input class="form-control" type="text" name="nombre" id="nombre"
+            placeholder="Escriba su nombre completo">
+          </div>
+            
+          <div class="form-group">
+            <label class=h4 for="correoe">Correo electronico: </label>
+            <input class="form-control" type="text" name="correoe" id="correoe" 
+            placeholder="Escriba su correo electronico">
+          </div>
+
+          <div class="form-group">
+            <label class=h4 for="comentarios">Comentario: </label>
+            <textarea class="form-control" name="comentarios" id="comentarios" 
+            placeholder="Escriba sus comentarios" cols="30" rows="10"></textarea>
+          </div>
+
+          <div class="container">
+  <div class="row">
+    <div class="col-2">
+      
     </div>
+    <div class="col-9">
+    <input type="submit" name="enviar" id="enviar" value="Enviar formulario">
+    </div>
+    <div class="col-2">
+      
+    </div>
+  </div>
+</div>
+          </div>
+        </div>
+     </div>
+   </div>
+
+
+          </form>
+
+         </div>
+        </div>
+     </div> 
+   </div>
+ </div>
+
+ </form>
     <footer>
       <div class="footer">
         <nav class="navbar navbar-expand-sm navbar-dark bg-primary justify-content-center" >
