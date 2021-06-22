@@ -34,7 +34,7 @@
                 <a class="nav-link" href="conocenos.php">Conócenos</a>
             </li> 
             <li class="nav-item">
-                <a class="nav-link" href="trabajaConNosotros.php">Trabaja con Nosotros</a>
+                <a class="nav-link" href="trabaja_con_nosotros.php">Trabaja con Nosotros</a>
             </li>
             <li class="nav-item">
                 <a class="active nav-link" href="#">Donaciones</a>
@@ -74,7 +74,7 @@
               <a class="nav-link" href="conocenos.php">Conócenos</a>
             </li> 
             <li class="nav-item">
-              <a class="nav-link" href="trabajaConNosotros.php">Trabaja con Nosotros</a>
+              <a class="nav-link" href="trabaja_con_nosotros.php">Trabaja con Nosotros</a>
             </li>
             <li class="nav-item">
               <a class="active nav-link" href="#">Donaciones</a>
