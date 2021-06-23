@@ -1,28 +1,3 @@
-<?php
-session_start();
-if (isset($_SESSION['correo'])) {
-  if($_SESSION['tipo'] == "paciente"){
-   
-  }else if($_SESSION['tipo'] == "voluntario"){
-
-   header('Location: vista/voluntario/inicio.php');
-
-  }else if($_SESSION['tipo'] == "profesional"){
-
-   header('Location: vista/profesional/inicio.php');
-
-  }else{
-
-   header('Location: vista/admin/inicio.php');
-
-  }
-    
-  die();
-}else{
-   header('Location: vista/inicio_sin_logueo.php');
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,13 +27,13 @@ if (isset($_SESSION['correo'])) {
             <a class="nav-link" href="../index.php"><img src="../../icons/koe.png" alt="Logo" width="30px"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="conocenos.vista.php">Conócenos</a>
+            <a class="nav-link" href="../conocenos.php">Conócenos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="trabajaConNosotros.vista.php">Trabaja con Nosotros</a>
+            <a class="nav-link" href="../trabaja_con_nosotros.php">Trabaja con Nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="donaciones.vista.php">Donaciones</a>
+            <a class="nav-link" href="../donaciones.php">Donaciones</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../../controlador/cerrar.php">Cerrar Sesión</a>
@@ -68,7 +43,8 @@ if (isset($_SESSION['correo'])) {
     </nav>
   </header>
 
-  <div class="container">
+  <div class="contenedor">
+    <div class="row container">
     <section class="sidebar">
       <ul>
         <li class='option'>
@@ -110,22 +86,23 @@ if (isset($_SESSION['correo'])) {
       <img src="../../img/bienestar.jpg" alt="">
     </aside>
   </div>
+    </div>
+    
 
 
   <footer>
     <div class="footer">
       <nav class="navbar navbar-expand-sm navbar-dark bg-primary justify-content-center">
-
-
         <ul class="navbar-nav ">
-
+          <li class="nav-item">
+            <a class="nav-link" href="../vista/conocenos.php">Conócenos</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" href="../vista/trabaja_con_nosotros.php">Trabaja con Nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="trabajaConNosotros.vista.php">Trabaja con Nosotros</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="donaciones.vista.php">Donaciones</a>
-          </li>
+            <a class="nav-link" href="../vista/donaciones.php">Donaciones</a>
+          </li> 
         </ul>
       </nav>
       <nav class="navbar navbar-expand-sm navbar-dark bg-primary justify-content-center">

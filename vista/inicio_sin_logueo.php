@@ -40,8 +40,9 @@
         </div>  
       </nav>
     </header>
-    <div class="container">
-      <div class="row ">
+    <div class="contenedor">
+      <div class="container">
+        <div class="row ">
           <div class="col-md row-cols-sm-1 >">
             <img src="../img/logoCuadrado.png" alt="Logo" width="70%">
           </div>
@@ -54,6 +55,8 @@
           </div> 
         </div>
       </div>
+    </div>
+      
       <footer>
         <div class="footer">
           <nav class="navbar navbar-expand-sm navbar-dark bg-primary justify-content-center" >

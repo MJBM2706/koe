@@ -31,13 +31,13 @@
             <a class="nav-link" href="../controlador/RegistroController.php">Registrate</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="conocenos.vista.php">Conócenos</a>
+            <a class="nav-link" href="../vista/conocenos.php">Conócenos</a>
           </li> 
           <li class="nav-item">
-            <a class="nav-link" href="trabajaConNosotros.vista.php">Trabaja con Nosotros</a>
+            <a class="nav-link" href="../vista/trabaja_con_nosotros.php">Trabaja con Nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="donaciones.vista.php">Donaciones</a>
+            <a class="nav-link" href="../vista/donaciones.php">Donaciones</a>
           </li>  
         </ul>
       </div>  
@@ -79,13 +79,13 @@
               <a class="nav-link" href="../controlador/RegistroController.php">Registrate</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="conocenos.vista.php">Conócenos</a>
+              <a class="nav-link" href="../vista/conocenos.php">Conócenos</a>
             </li> 
             <li class="nav-item">
-              <a class="nav-link" href="trabajaConNosotros.vista.php">Trabaja con Nosotros</a>
+              <a class="nav-link" href="../vista/trabaja_con_nosotros.php">Trabaja con Nosotros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="donaciones.vista.php">Donaciones</a>
+              <a class="nav-link" href="../vista/donaciones.php">Donaciones</a>
             </li>  
           </ul>
         </nav>

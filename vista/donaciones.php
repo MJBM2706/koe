@@ -22,13 +22,13 @@
       <div class="collapse navbar-collapse  justify-content-center" id="collapsibleNavbar">
         <ul class="navbar-nav ">
             <li class="nav-item">
-                <a class="nav-link" href="../index.php"><img src="../icons/koe.png" alt="Home" width="30px"></a>
+              <a class="nav-link" href="../index.php"><img src="../icons/koe.png" alt="Home" width="30px"></a>
             </li>
             <li class="nav-item">
-                    <a class="nav-link" href="../controlador/LoginController.php">Inicia Sesión</a>
+              <a class="nav-link" href="../controlador/LoginController.php">Inicia Sesión</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../controlador/RegistroController.php">Regístrate</a>
+              <a class="nav-link" href="../controlador/RegistroController.php">Regístrate</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="conocenos.php">Conócenos</a>

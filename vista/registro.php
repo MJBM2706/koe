@@ -25,19 +25,19 @@
             <a class="nav-link" href="../index.php"><img src="../icons/koe.png" alt="Logo" width="30px"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../controlador/LoginController.php">Inicia Sesión</a>
+            <a class="nav-link" href="LoginController.php">Inicia Sesión</a>
           </li>
           <li class="nav-item">
             <a class="active nav-link" href="#">Regístrate</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="conocenos.vista.php">Conócenos</a>
+            <a class="nav-link" href="../vista/conocenos.php">Conócenos</a>
           </li> 
           <li class="nav-item">
-            <a class="nav-link" href="trabajaConNosotros.vista.php">Trabaja con Nosotros</a>
+            <a class="nav-link" href="../vista/trabaja_con_nosotros.php">Trabaja con Nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="donaciones.vista.php">Donaciones</a>
+            <a class="nav-link" href="../vista/donaciones.php">Donaciones</a>
           </li>  
         </ul>
       </div>  
@@ -62,7 +62,7 @@
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="inicioSesion.vista.php">¿Ya tienes una cuenta?</a>
+      <a class="underlineHover" href="LoginController.php">¿Ya tienes una cuenta?</a>
     </div>
   </div>
 </div>
@@ -73,19 +73,19 @@
         
           <ul class="navbar-nav ">
             <li class="nav-item">
-              <a class="nav-link" href="inicioSesion.vista.php">Inicia Sesión</a>
+              <a class="nav-link" href="LoginController.php">Inicia Sesión</a>
             </li>
             <li class="nav-item">
               <a class="active nav-link" href="#">Regístrate</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="conocenos.vista.php">Conócenos</a>
+              <a class="nav-link" href="../vista/conocenos.php">Conócenos</a>
             </li> 
             <li class="nav-item">
-              <a class="nav-link" href="trabajaConNosotros.vista.php">Trabaja con Nosotros</a>
+              <a class="nav-link" href="../vista/trabaja_con_nosotros.php">Trabaja con Nosotros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="donaciones.vista.php">Donaciones</a>
+              <a class="nav-link" href="../vista/donaciones.php">Donaciones</a>
             </li>  
           </ul>
         </nav>
