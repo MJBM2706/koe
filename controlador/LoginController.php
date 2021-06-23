@@ -52,14 +52,15 @@ session_start();
         }
     
         if ($errores == '') {
-            $idUsuario = $metodosBD->consultarIdUsuario($correo,$password);
-            $tipo = $metodosBD->tipoUsuario($idUsuario);
-    
-               
-                $_SESSION['correo'] = $correo;
-                $_SESSION['idUsuario'] = $idUsuario;
-                $_SESSION['password'] = $password;
-                $_SESSION['tipo'] = $tipo;
+            $usuario = $metodosBD->consultarIdUsuario($correo,$password);
+            $idUsuario = (int)$usuario[0]['idUsuario'];            
+            $respuestaTipo = $metodosBD->tipoUsuario($idUsuario);
+            $tipo = (string)$respuestaTipo[0]['tipoUsuario'];
+            
+            $_SESSION['correo'] = $correo;
+            $_SESSION['idUsuario'] = $idUsuario;
+            $_SESSION['password'] = $password;
+            $_SESSION['tipo'] = $tipo;
                 
                 
                 //Después de iniciar sesión redirigimos a la página de inicio
