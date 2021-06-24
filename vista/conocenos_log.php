@@ -22,19 +22,19 @@
       <div class="collapse navbar-collapse  justify-content-center" id="collapsibleNavbar">
         <ul class="navbar-nav ">
           <li class="nav-item">
-            <a class="nav-link" href="../index.php"><img src="../../icons/koe.png" alt="Logo" width="30px"></a>
+            <a class="nav-link" href="../index.php"><img src="../icons/koe.png" alt="Logo" width="30px"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../conocenos.php">Conócenos</a>
+            <a class="active nav-link" href="#">Conócenos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../trabaja_con_nosotros.php">Trabaja con Nosotros</a>
+            <a class="nav-link" href="trabaja_con_nosotros_log.php">Trabaja con Nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../donaciones.php">Donaciones</a>
+            <a class="nav-link" href="donaciones_log.php">Donaciones</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../../controlador/cerrar.php">Cerrar Sesión</a>
+            <a class="nav-link" href="../controlador/cerrar.php">Cerrar Sesión</a>
           </li>
         </ul>
       </div>
