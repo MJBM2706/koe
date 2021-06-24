@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['tipo'])) {
+    header('Location: ../index.php');
+    die();
+} 
+?>
 <!DOCTYPE html>
   <html lang="es">
   <head>
@@ -51,7 +58,7 @@
               El suicidio es un grave problema de salud pública; no obstante, es prevenible mediante intervenciones oportunas[...](World Health Organization,2019).
             </p>
             <a class="btn col-sm-12" href="#">Necesito ayuda inmediata</a>
-              <a class="btn col-sm-12" href="#">Agendar cita con un profesional</a>
+              <a class="btn col-sm-12" href="../controlador/RegistroController.php">Agendar cita con un profesional</a>
           </div> 
         </div>
       </div>

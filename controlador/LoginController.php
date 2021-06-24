@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (isset($_SESSION['tipo'])) {
+    header('Location: ../index.php');
+    die();
+} 
     require_once('../utilidades/metodosBD.php');
     $metodosBD = new MetodosBD();
     
@@ -61,6 +65,8 @@ session_start();
             $_SESSION['idUsuario'] = $idUsuario;
             $_SESSION['password'] = $password;
             $_SESSION['tipo'] = $tipo;
+
+            header('Location: ../index.php');
                 
                 
                 //Después de iniciar sesión redirigimos a la página de inicio

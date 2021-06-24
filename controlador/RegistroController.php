@@ -1,7 +1,7 @@
 <?php
  session_start();
- if (isset($_SESSION['correo'])) {
-     header('Location: ../vista/paciente/inicio.php');
+ if (isset($_SESSION['tipo'])) {
+     header('Location: ../index.php');
    die();
 }
 require_once('../utilidades/metodosBD.php');
