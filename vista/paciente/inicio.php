@@ -24,7 +24,7 @@
       <div class="collapse navbar-collapse  justify-content-center" id="collapsibleNavbar">
         <ul class="navbar-nav ">
           <li class="nav-item">
-            <a class="nav-link" href="../index.php"><img src="../../icons/koe.png" alt="Logo" width="30px"></a>
+            <a class="nav-link" href="../../index.php"><img src="../../icons/koe.png" alt="Logo" width="30px"></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../conocenos_log.php">Conócenos</a>
@@ -45,34 +45,34 @@
 
   <div class="contenedor">
     <div class="row container">
-    <section class="sidebar">
-      <ul>
-        <li class='option'>
-          <a href="#">
+    <section class="sidebar navbar-dark">
+      <ul class="navbar-nav" >
+        <li class='nav-item  option'>
+          <a class=' active nav-link' href="#">
             <img class="icon" src="../../icons/house.png" alt="" srcset="">
-            <p>Inicio</p>
+            <p >Inicio</p>
           </a>
         </li>
         <li class='option'>
-          <a href="cuenta.php">
+          <a class='nav-link' href="cuenta.php">
             <img class="icon" src="../../icons/user.png" alt="" srcset="">
             <p>Mi Cuenta</p>
           </a>
         </li>
         <li class='option'>
-          <a href="">
+          <a class='nav-link' href="">
             <img class="icon" src="../../icons/message.png" alt="" srcset="">
             <p>Mensajes</p>
           </a>
         </li>
         <li class='option'>
-          <a href="">
+          <a class='nav-link' href="">
             <img class="icon" src="../../icons/medical_record.png" alt="" srcset="">
             <p>Historial Clinico</p>
           </a>
         </li>
         <li class='option'>
-          <a href="">
+          <a class='nav-link' href="">
             <img class="icon" src="../../icons/appointment.png" alt="" srcset="">
             <p>Citas</p>
           </a>
@@ -95,13 +95,13 @@
       <nav class="navbar navbar-expand-sm navbar-dark bg-primary justify-content-center">
         <ul class="navbar-nav ">
           <li class="nav-item">
-            <a class="nav-link" href="../vista/conocenos.php">Conócenos</a>
+            <a class="nav-link" href="../conocenos_log.php">Conócenos</a>
           </li> 
           <li class="nav-item">
-            <a class="nav-link" href="../vista/trabaja_con_nosotros.php">Trabaja con Nosotros</a>
+            <a class="nav-link" href="../trabaja_con_nosotros_log.php">Trabaja con Nosotros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../vista/donaciones.php">Donaciones</a>
+            <a class="nav-link" href="../donaciones_log.php">Donaciones</a>
           </li> 
         </ul>
       </nav>

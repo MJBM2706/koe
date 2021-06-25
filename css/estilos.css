@@ -268,7 +268,7 @@ select {
 
 /* Pagina Inicio- Paciente, Profesional, Voluntario  START*/
 .contenedor {
-  min-height: 600px;
+  min-height: 100vh;
   display: flex;
   margin: 10px;
   margin: 4rem 0;
@@ -279,6 +279,7 @@ select {
   display: flex;
   flex-direction: column;
   width: 30%;
+  padding: 5px 6em;
 }
 
 .content {
@@ -298,17 +299,32 @@ select {
   padding: 1rem 0;
 }
 
+.option-link{
+  display: block;
+  text-decoration: none;
+}
+
+.option-link:hover, .option-link:focus{
+  text-decoration: none;
+}
+
 .option > * {
   color: #fff;
   font-weight: bold;
   font-size: 0.8rem;
   text-align: center;
+  text-decoration: none;
+}
+
+.option:hover{
+  text-decoration: none;
 }
 
 .icon {
   width: 3rem;
   height: 3rem;
 }
+
 
 
 /* Pagina Inicio- Paciente, Profesional, Voluntario END*/
