@@ -66,7 +66,7 @@
           </a>
         </li>
         <li class='option'>
-          <a class='nav-link' href="">
+          <a class='nav-link' href="historia.php">
             <img class="icon" src="../../icons/medical_record.png" alt="" srcset="">
             <p>Historial Clinico</p>
           </a>

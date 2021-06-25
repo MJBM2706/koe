@@ -47,13 +47,13 @@
   <section class="sidebar navbar-dark">
       <ul class="navbar-nav" >
         <li class='nav-item  option'>
-          <a class=' nav-link' href="#">
+          <a class=' nav-link' href="inicio.php">
             <img class="icon" src="../../icons/house.png" alt="" srcset="">
             <p >Inicio</p>
           </a>
         </li>
         <li class='option'>
-          <a class='active  nav-link' href="cuenta.php">
+          <a class='active  nav-link' href="#">
             <img class="icon" src="../../icons/user.png" alt="" srcset="">
             <p>Mi Cuenta</p>
           </a>
@@ -65,7 +65,7 @@
           </a>
         </li>
         <li class='option'>
-          <a class='nav-link' href="">
+          <a class='nav-link' href="historia.php">
             <img class="icon" src="../../icons/medical_record.png" alt="" srcset="">
             <p>Historial Clinico</p>
           </a>
