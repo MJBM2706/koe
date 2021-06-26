@@ -1,7 +1,9 @@
-
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-06-2021 a las 01:19:43
+-- Tiempo de generación: 26-06-2021 a las 07:13:13
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -79,16 +81,24 @@ CREATE TABLE `paciente` (
   `usuario_idUsuario` bigint(20) NOT NULL,
   `nombre` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `apellido` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `telefono` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `fechaNacimiento` date DEFAULT NULL
+  `tipoDocumento` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `documentoIdentidad` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fechaNacimiento` date DEFAULT NULL,
+  `departamento` varchar(125) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ciudad` varchar(125) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `direccion` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `celular` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `contactoEmergencia` varchar(225) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `celularEmergencia` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `paciente`
 --
 
-INSERT INTO `paciente` (`idPaciente`, `usuario_idUsuario`, `nombre`, `apellido`, `telefono`, `fechaNacimiento`) VALUES
-(15, 20, NULL, NULL, NULL, NULL);
+INSERT INTO `paciente` (`idPaciente`, `usuario_idUsuario`, `nombre`, `apellido`, `tipoDocumento`, `documentoIdentidad`, `fechaNacimiento`, `departamento`, `ciudad`, `direccion`, `celular`, `contactoEmergencia`, `celularEmergencia`) VALUES
+(15, 20, 'Maria Jose', 'Botero Martínez', 'IDENT. FISCAL PARA EXT.', '1036963286', '1998-06-27', 'amazonas', 'amazonas', 'Cra 54C #66b-37', '3002427778', 'Luciana Martinez', '3002427778'),
+(16, 22, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -126,7 +136,8 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`idUsuario`, `tipoUsuario`, `correo`, `password`) VALUES
 (20, 'paciente', 'majo.botero.m.123@gmail.com', '2706'),
-(21, 'admin', 'admin@admin.com', 'admin123456789');
+(21, 'admin', 'admin@admin.com', 'admin123456789'),
+(22, 'paciente', 'ejemplo@ejemplo', '123456');
 
 -- --------------------------------------------------------
 
@@ -214,13 +225,13 @@ ALTER TABLE `consulta_paga`
 -- AUTO_INCREMENT de la tabla `paciente`
 --
 ALTER TABLE `paciente`
-  MODIFY `idPaciente` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idPaciente` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Restricciones para tablas volcadas
