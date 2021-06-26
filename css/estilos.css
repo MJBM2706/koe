@@ -119,6 +119,7 @@ select {
   transition: all 0.5s ease-in-out;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
+  
 }
 
 input:focus,
@@ -345,7 +346,9 @@ select {
 .profile-form > input.confirm {
   width: 2rem;
 }
-
+.profile-form > input {
+  width: 100%;
+}
 .profile-form-option {
   width: 90%;
 }
@@ -357,6 +360,7 @@ select {
 .contact-info > li > * {
   width: 100%;
 }
+
 
 
 

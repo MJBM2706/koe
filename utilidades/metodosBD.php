@@ -4,10 +4,39 @@ require 'Conexion.php';
 class MetodosBD{
     private $conn;
 
-    function tipoUsuario($idUsuario){
+    function actualizarDatosContactoPaciente($usuario_idUsuario, $departamento,$ciudad,$direccion,$celular,$contactoEmergencia,$celularEmergencia){
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();
-        $result = $resultado->query("SELECT tipoUsuario FROM usuario WHERE idUsuario = $idUsuario");
+        $resultado->query("UPDATE paciente SET departamento = '$departamento', ciudad =  '$ciudad', direccion = '$direccion', celular = '$celular', contactoEmergencia = '$contactoEmergencia', celularEmergencia = '$celularEmergencia' WHERE usuario_idUsuario = $usuario_idUsuario");
+        if($resultado){
+            return true;
+        }
+        return false;
+    
+    }
+
+    function actualizarDatosPersonalesPaciente($usuario_idUsuario, $nombre,$apellido,$tipoDocumento,$documentoIdentidad,$fechaNacimiento){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $resultado->query("UPDATE paciente SET nombre = '$nombre', apellido =  '$apellido', tipoDocumento = '$tipoDocumento', documentoIdentidad = '$documentoIdentidad', fechaNacimiento = '$fechaNacimiento' WHERE usuario_idUsuario = $usuario_idUsuario");
+        
+    
+    }
+
+    function consultarPaciente($usuario_idUsuario){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $result = $resultado->query("SELECT * FROM paciente WHERE usuario_idUsuario = $usuario_idUsuario");
+        
+        //$rows = $result->fetch_all(MYSQLI_ASSOC);
+    
+        return $result;
+    }
+
+    function tipoUsuario($usuario_idUsuario){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $result = $resultado->query("SELECT tipoUsuario FROM usuario WHERE idUsuario = $usuario_idUsuario");
         
         $rows = $result->fetch_all(MYSQLI_ASSOC);
     

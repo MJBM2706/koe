@@ -1,3 +1,43 @@
+<?php
+session_start();
+if (!isset($_SESSION['tipo'])) {
+    header('Location: ../../index.php');
+    die();
+}
+
+include '../../utilidades/metodosBD.php';
+$usuario_idUsuario = $_SESSION['idUsuario'];
+$metodosBD = new MetodosBD();
+
+if (isset($_POST['enviarDatosPersonales'])){
+  $nombre = $_POST['nombre'];
+  $apellido = $_POST['apellido'];
+  $tipoDocumento = $_POST['tipoDocumento'];
+  $documentoIdentidad = $_POST['documento'];
+  $fechaNacimiento = $_POST['fechaNacimiento'];
+  $resul = $metodosBD->actualizarDatosPersonalesPaciente($usuario_idUsuario, $nombre,$apellido,$tipoDocumento,$documentoIdentidad,$fechaNacimiento);
+  
+    echo "<script>alert('Datos actualizados correctamente');</script>";
+  
+}
+
+if (isset($_POST['enviarDatosContacto'])){
+  $departamento = $_POST['departamento'];
+  $ciudad = $_POST['ciudad'];
+  $direccion = $_POST['direccion'];
+  $celular = $_POST['celular'];
+  $contactoEmergencia = $_POST['contactoEmergencia'];
+  $celularEmergencia = $_POST['celularEmergencia'];
+  $resultt = $metodosBD->actualizarDatosContactoPaciente($usuario_idUsuario, $departamento,$ciudad,$direccion,$celular,$contactoEmergencia,$celularEmergencia);
+  if($resultt != true){
+    echo "<script>alert('No se pudieron actualizar los datos');</script>";
+  }else {
+    echo "<script>alert('Datos actualizados correctamente');</script>";
+  }
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +46,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koe</title>
-    <link rel="icon" type="image/png" href="../icons/koe.png">
+    <link rel="icon" type="image/png" href="../../icons/koe.png">
     <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -78,23 +118,29 @@
         </li>
       </ul>
     </section>
-        <aside class="content">
-            <h5>Datos Personales</h5>
+        <aside class=" content">
+            <h5 >Datos Personales</h5>
             <hr>
             <form action="" method="post" class="profile-form">
-                <div>
+            <?php
+            $resultado = $metodosBD->consultarPaciente($usuario_idUsuario);
+            if(mysqli_num_rows($resultado) > 0){
+              while ($row = mysqli_fetch_assoc($resultado)){
+            ?>
+                  <div>
                     <ul class="profile-info contact-info">
                         <li>
                             <p>Nombre</p>
-                            <input type="text" placeholder="Tu nombre">
+                            <input type="text" name="nombre" placeholder="Tu nombre" value="<?php echo $row['nombre'] ?>" required>
                         </li>
                         <li>
                             <p>Apellidos</p>
-                            <input type="tel" placeholder="Tus Apellidos">
+                            <input type="text" name="apellido" placeholder="Tus Apellidos" value="<?php echo $row['apellido'] ?>" required>
                         </li>
                         <li>
                             <p>Tipo de documento</p>
-                            <select class="profile-form-option" name="tipoDocumento" id="">
+ 
+                            <select class="profile-form-option" name="tipoDocumento" id="tipoDocumento"  required>
                                 <option value="CEDULA">Cedula</option>
                                 <option value="CEDULA EXTRANJERIA">Cedula Extranjeria</option>
                                 <option value="DOC.IDENT. DE EXTRANJEROS">Doc.Ident. de Extranjeros</option>
@@ -113,24 +159,44 @@
                         </li>
                         <li>
                             <p>Documento de Identidad</p>
-                            <input type="tel" placeholder="Tu documento de identidad">
+                            <input type="text" name="documento" placeholder="Tu documento de identidad" value="<?php echo $row['documentoIdentidad'] ?>" required>
                         </li>
                         <li>
                             <p>Fecha de Nacimiento</p>
-                            <input type="date" name="fecha"> 
+                            <input type="date" name="fechaNacimiento" value="<?php echo $row['fechaNacimiento'] ?>" required> 
+                        </li>
+                        <li>
+                            <p>Email</p>
+                            <input type="email" name="correo" value="<?php echo $_SESSION['correo'] ?>" disabled required > 
                         </li>
                     </ul>
+                  </div>
+                  <?php
+                  }}
+                  ?>
+                <input class="confirm" type="checkbox" required><span>Acepto los terminos y condiciones de los datos registrados en este sitio. </span>
+
+                <div class="profile-form"> 
+                  
+                  <input width="100%" type="submit" name="enviarDatosPersonales" value="Actualizar">
                 </div>
-                
+   
             </form>
+           
             <h5>Datos de Contacto</h5>
             <hr>
-            <form action="" method="post" class="profile-form">
+
+            <form action="" method="post" class="profile-form" >
+            <?php
+            $resultado = $metodosBD->consultarPaciente($usuario_idUsuario);
+            if(mysqli_num_rows($resultado) > 0){
+              while ($row = mysqli_fetch_assoc($resultado)){
+            ?>
                 <div>
                     <ul class="profile-info contact-info">
                         <li>
                             <p>Departamento</p>
-                            <select class="profile-form-option" name="departamento" id="">
+                            <select class="profile-form-option" name="departamento" id="" value="<?php echo $row['departamento'] ?>" required> 
                                 <option value="amazonas">Amazonas</option>
                                 <option value="antioquia">Antioquia</option>
                                 <option value="arauca">Arauca</option>
@@ -168,7 +234,7 @@
                         </li>
                         <li>
                             <p>Ciudad</p>
-                            <select class="profile-form-option" name="ciudad" id="">
+                            <select class="profile-form-option" name="ciudad" id="" value="<?php echo $row['ciudad'] ?>" required>
                                 <option value="amazonas">Leticia</option>
                                 <option value="antioquia">Medellín</option>
                                 <option value="atlantico">Barranquilla</option>
@@ -178,26 +244,28 @@
                         </li>
                         <li>
                             <p>Direccion</p>
-                            <input type="text" placeholder="Tu Direccion">
+                            <input type="text" name="direccion" placeholder="Tu Direccion" value="<?php echo $row['direccion'] ?>" required>
                         </li>
                         <li>
                             <p>Celular</p>
-                            <input type="tel" placeholder="Tu Celular">
+                            <input type="tel" name="celular" placeholder="Tu Celular" value="<?php echo $row['celular'] ?>" required>
                         </li>
                         <li>
                             <p>Nombre del contacto de Emergencia</p>
-                            <input type="tel" placeholder="Nombre del contacto">
+                            <input type="tel" name="contactoEmergencia" placeholder="Nombre del contacto" value="<?php echo $row['contactoEmergencia'] ?>" required>
                         </li>
                         <li>
                             <p>Celular del contacto de Emergencia</p>
-                            <input type="tel" placeholder="Celular del contacto">
+                            <input type="tel" name="celularEmergencia" placeholder="Celular del contacto" value="<?php echo $row['celularEmergencia'] ?>" required>
                         </li>
                     </ul>
                 </div>
-                <input class="confirm" type="checkbox"><span>Acepto los terminos y condiciones de los datos registrados en este sitio</span>
-                <div>
-
-                    <input type="submit" name="enviar" value="Actualizar">
+                <?php
+                  }}
+                  ?>
+                <input class="confirm" type="checkbox" required><span>Acepto los terminos y condiciones de los datos registrados en este sitio.</span>
+                <div class="profile-form">
+                  <input type="submit" name="enviarDatosContacto" value="Actualizar">
                 </div>
             </form>
         </aside>
@@ -248,7 +316,7 @@
 
   </footer>
 
-
+ 
 </body>
 
 </html>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Koe</title>
-  <link rel="icon" type="image/png" href="../icons/koe.png">
+  <link rel="icon" type="image/png" href="../../icons/koe.png">
   <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -80,10 +80,7 @@
       </ul>
     </section>
     <aside class="content">
-      <h2>Bienvenido, @username</h2>
-      <p>El equipo de Koe te agradece por escogernos para ayudarte a alcanzar el bienestar que te mereces.</p>
-      <p>Para empezar pide una cita o si es una emergencia haz <a href="#">click aqui</a></p>
-      <img src="../../img/bienestar.jpg" alt="">
+     
     </aside>
   </div>
     </div>
