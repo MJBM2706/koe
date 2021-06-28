@@ -1,3 +1,20 @@
+<?php
+session_start();
+if (!isset($_SESSION['tipo'])) {
+    header('Location: ../../index.php');
+    die();
+}
+include '../../utilidades/metodosBD.php';
+$usuario_idUsuario = $_SESSION['idUsuario'];
+$metodosBD = new MetodosBD();
+$resultado = $metodosBD->consultarPaciente($usuario_idUsuario);
+if(mysqli_num_rows($resultado) > 0){
+  while ($row = mysqli_fetch_assoc($resultado)){
+    $userName = $row['nombre'];
+  }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,7 +97,7 @@
       </ul>
     </section>
     <aside class="content">
-      <h2>Bienvenido, @username</h2>
+      <h2><?php echo "Bienvenid@, $userName" ?></h2>
       <p>El equipo de Koe te agradece por escogernos para ayudarte a alcanzar el bienestar que te mereces.</p>
       <p>Para empezar pide una cita o si es una emergencia haz <a href="#">click aqui</a></p>
       <img src="../../img/bienestar.jpg" alt="">

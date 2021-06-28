@@ -142,19 +142,19 @@ if (isset($_POST['enviarDatosContacto'])){
  
                             <select class="profile-form-option" name="tipoDocumento" id="tipoDocumento"  required>
                             <option value="<?php echo $row['tipoDocumento'] ?>"><?php echo $row['tipoDocumento'] ?>
-                                <option value="CEDULA">Cedula</option>
-                                <option value="CEDULA EXTRANJERIA">Cedula Extranjeria</option>
-                                <option value="DOC.IDENT. DE EXTRANJEROS">Doc.Ident. de Extranjeros</option>
-                                <option value="IDENT. FISCAL PARA EXT.">Ident. Fiscal para Ext.</option>
-                                <option value="NIT PARA PERSONAS">NIT Personas Naturales</option>
+                                <option value="Cédula">Cédula</option>
+                                <option value="Cédula Extranjeria">Cédula Extranjeria</option>
+                                <option value="Doc.Ident. de Extranjeros">Doc.Ident. de Extranjeros</option>
+                                <option value="Ident. Fiscal para Ext.">Ident. Fiscal para Ext.</option>
+                                <option value="NIT Personas Naturales">NIT Personas Naturales</option>
                                 <option value="NUIP">NUIP</option>
-                                <option value="PASAPORTE">Pasaporte</option>
-                                <option value="REGISTRO CIVIL">Registro Civil</option>
-                                <option value="TARJETA DE INDENTIDAD">Tarjeta de Identidad</option>
-                                <option value="PASAPORTE ONU">Pasaporte ONU</option>
-                                <option value="PERMISO ESPECIAL PERMANENCIA">Permiso especial Permanencia</option>
-                                <option value="SALVOCODUCTO DE PERMANENCIA">Salvoconducto de Permanencia</option>
-                                <option value="PERMISO ESPECIAL FORMACN PEPFF">Permiso Especial Formacn PEPFF</option>
+                                <option value="Pasaporte">Pasaporte</option>
+                                <option value="Registro Civil">Registro Civil</option>
+                                <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
+                                <option value="Pasaporte ONU">Pasaporte ONU</option>
+                                <option value="Permiso especial Permanencia">Permiso especial Permanencia</option>
+                                <option value="Salvoconducto de Permanencia">Salvoconducto de Permanencia</option>
+                                <option value="Permiso Especial Formacn PEPFF">Permiso Especial Formacn PEPFF</option>
                                
                             </select>
                         </li>
