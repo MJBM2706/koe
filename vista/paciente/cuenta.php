@@ -141,6 +141,7 @@ if (isset($_POST['enviarDatosContacto'])){
                             <p>Tipo de documento</p>
  
                             <select class="profile-form-option" name="tipoDocumento" id="tipoDocumento"  required>
+                            <option value="<?php echo $row['tipoDocumento'] ?>"><?php echo $row['tipoDocumento'] ?>
                                 <option value="CEDULA">Cedula</option>
                                 <option value="CEDULA EXTRANJERIA">Cedula Extranjeria</option>
                                 <option value="DOC.IDENT. DE EXTRANJEROS">Doc.Ident. de Extranjeros</option>
@@ -196,50 +197,52 @@ if (isset($_POST['enviarDatosContacto'])){
                     <ul class="profile-info contact-info">
                         <li>
                             <p>Departamento</p>
-                            <select class="profile-form-option" name="departamento" id="" value="<?php echo $row['departamento'] ?>" required> 
-                                <option value="amazonas">Amazonas</option>
-                                <option value="antioquia">Antioquia</option>
-                                <option value="arauca">Arauca</option>
-                                <option value="atlantico">Atlántico</option>
-                                <option value="bogota">Bogotá</option>
-                                <option value="bolivar">Bolívar</option>
-                                <option value="boyaca">Boyacá</option>
-                                <option value="caldas">Caldas</option>
-                                <option value="caqueta">Caquetá</option>
-                                <option value="casanare">Casanare</option>
-                                <option value="cauca">Cauca</option>
-                                <option value="cesar">Cesar</option>
-                                <option value="choco">Chocó</option>
-                                <option value="cordoba">Córdoba</option>
-                                <option value="cundinamarca">Cundinamarca</option>
-                                <option value="guainia">Guainía</option>
-                                <option value="guaviare">Guaviare</option>
-                                <option value="huila">Huila</option>
-                                <option value="la guajira">La Guajira</option>
-                                <option value="magdalena">Magdalena</option>
-                                <option value="meta">Meta</option>
-                                <option value="narino">Nariño</option>
-                                <option value="santander">Norte de Santander</option>
-                                <option value="putumayo">Putumayo</option>
-                                <option value="quindio">Quindío</option>
-                                <option value="risaralda">Risaralda</option>
-                                <option value="san andres y providencia">San Andrés y Providencia</option>
-                                <option value="bolivar">Santander</option>
-                                <option value="boyaca">Sucre</option>
-                                <option value="boyaca">Tolima</option>
-                                <option value="boyaca">Valle del Cauca</option>
-                                <option value="boyaca">Vaupés</option>
-                                <option value="boyaca">Vichada</option>
+                            <select class="profile-form-option" name="departamento" id=""  required>
+                              <option value="<?php echo $row['departamento'] ?>"><?php echo $row['departamento'] ?></option>
+                                <option value="Amazonas">Amazonas</option>
+                                <option value="Antioquia">Antioquia</option>
+                                <option value="Arauca">Arauca</option>
+                                <option value="Atlántico">Atlántico</option>
+                                <option value="Bogotá">Bogotá</option>
+                                <option value="Bolívar">Bolívar</option>
+                                <option value="Boyacá">Boyacá</option>
+                                <option value="Caldas">Caldas</option>
+                                <option value="Caquetá">Caquetá</option>
+                                <option value="Casanare">Casanare</option>
+                                <option value="Cauca">Cauca</option>
+                                <option value="Cesar">Cesar</option>
+                                <option value="Chocó">Chocó</option>
+                                <option value="Córdoba">Córdoba</option>
+                                <option value="Cundinamarca">Cundinamarca</option>
+                                <option value="Guainía">Guainía</option>
+                                <option value="Guaviare">Guaviare</option>
+                                <option value="Huila">Huila</option>
+                                <option value="La Guajira">La Guajira</option>
+                                <option value="Magdalena">Magdalena</option>
+                                <option value="Meta">Meta</option>
+                                <option value="Nariño">Nariño</option>
+                                <option value="Norte de Santander">Norte de Santander</option>
+                                <option value="Putumayo">Putumayo</option>
+                                <option value="Quindío">Quindío</option>
+                                <option value="Risaralda">Risaralda</option>
+                                <option value="San Andrés y Providencia">San Andrés y Providencia</option>
+                                <option value="Santander">Santander</option>
+                                <option value="Sucre">Sucre</option>
+                                <option value="Tolima">Tolima</option>
+                                <option value="Valle del Cauca">Valle del Cauca</option>
+                                <option value="Vaupés">Vaupés</option>
+                                <option value="Vichada">Vichada</option>
                             </select>
                         </li>
                         <li>
                             <p>Ciudad</p>
                             <select class="profile-form-option" name="ciudad" id="" value="<?php echo $row['ciudad'] ?>" required>
-                                <option value="amazonas">Leticia</option>
-                                <option value="antioquia">Medellín</option>
-                                <option value="atlantico">Barranquilla</option>
-                                <option value="bolivar">Cartagena</option>
-                                <option value="boyaca">Tunja</option>
+                            <option value="<?php echo $row['ciudad'] ?>"><?php echo $row['ciudad'] ?>
+                                <option value="Leticia">Leticia</option>
+                                <option value="Medellín">Medellín</option>
+                                <option value="Barranquilla">Barranquilla</option>
+                                <option value="Cartagena">Cartagena</option>
+                                <option value="Tunja">Tunja</option>
                             </select>
                         </li>
                         <li>
