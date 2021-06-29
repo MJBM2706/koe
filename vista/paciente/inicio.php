@@ -16,7 +16,7 @@ if(mysqli_num_rows($resultado) > 0){
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
