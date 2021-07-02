@@ -52,6 +52,31 @@ if (isset($_POST['enviarDatosContacto'])){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+    window.ChatraGroupID = 'bahcTXkE5dTdZmHQE';
+  </script>
+  <script>
+window.ChatraSetup = {
+    colors: {
+        buttonText: '#f0f0f0', /* color del texto del botón de chat */
+        buttonBg: '#120e3c'    /* color de fondo del botón de chat */
+    }
+};
+</script>
+  <!-- Chatra {literal} -->
+  <script>
+      (function(d, w, c) {
+          w.ChatraID = 'xPF3JLfW6W3u99nC2';
+          var s = d.createElement('script');
+          w[c] = w[c] || function() {
+              (w[c].q = w[c].q || []).push(arguments);
+          };
+          s.async = true;
+          s.src = 'https://call.chatra.io/chatra.js';
+          if (d.head) d.head.appendChild(s);
+      })(document, window, 'Chatra');
+  </script>
+  <!-- /Chatra {/literal} -->
 </head>
 
 <body>
@@ -99,21 +124,15 @@ if (isset($_POST['enviarDatosContacto'])){
           </a>
         </li>
         <li class='option'>
-          <a class='nav-link' href="">
-            <img class="icon" src="../../icons/message.png" alt="" srcset="">
-            <p>Mensajes</p>
-          </a>
-        </li>
-        <li class='option'>
           <a class='nav-link' href="historia.php">
             <img class="icon" src="../../icons/medical_record.png" alt="" srcset="">
             <p>Historial Clinico</p>
           </a>
         </li>
         <li class='option'>
-          <a class='nav-link' href="">
+          <a class='nav-link' href="citas.php">
             <img class="icon" src="../../icons/appointment.png" alt="" srcset="">
-            <p>Citas</p>
+            <p>Agendar Cita</p>
           </a>
         </li>
       </ul>

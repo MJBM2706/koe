@@ -60,27 +60,21 @@
           </a>
         </li>
         <li class='option'>
-          <a class='nav-link' href="">
-            <img class="icon" src="../../icons/message.png" alt="" srcset="">
-            <p>Mensajes</p>
-          </a>
-        </li>
-        <li class='option'>
           <a class='active nav-link' href="#">
             <img class="icon" src="../../icons/medical_record.png" alt="" srcset="">
             <p>Historial Clinico</p>
           </a>
         </li>
         <li class='option'>
-          <a class='nav-link' href="">
+          <a class='nav-link' href="citas.php">
             <img class="icon" src="../../icons/appointment.png" alt="" srcset="">
-            <p>Citas</p>
+            <p>Agendar Cita</p>
           </a>
         </li>
       </ul>
     </section>
     <aside class="content">
-     
+     Aquí va la historia
     </aside>
   </div>
     </div>
