@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-06-2021 a las 07:13:13
+-- Tiempo de generación: 03-07-2021 a las 21:07:43
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -24,29 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `comprobante_pago`
+-- Estructura de tabla para la tabla `antecedentes_historia`
 --
 
-CREATE TABLE `comprobante_pago` (
-  `idComprobante_Pago` int(11) NOT NULL,
-  `paciente_idPaciente` int(11) NOT NULL,
-  `paciente_Usuario_idUsuario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `consulta_paga`
---
-
-CREATE TABLE `consulta_paga` (
-  `idConsulta_Paga` int(11) NOT NULL,
-  `profesional_idProfesional` bigint(20) NOT NULL,
-  `profesional_Usuario_idUsuario` bigint(20) NOT NULL,
-  `comprobante_Pago_idComprobante_Pago` int(11) NOT NULL,
-  `comprobante_Pago_Paciente_idPaciente` bigint(20) NOT NULL,
-  `comprobante_Pago_Paciente_Usuario_idUsuario` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE `antecedentes_historia` (
+  `paciente_Usuario_idUsuario` bigint(20) NOT NULL,
+  `antecedentes_fam` text NOT NULL,
+  `antecedentes_fam_pat` text NOT NULL,
+  `antecedentes_fam_no_pat` text NOT NULL,
+  `historial_prenatal` text NOT NULL,
+  `niñez_temprana` text NOT NULL,
+  `niñez_media` text NOT NULL,
+  `adolescencia` text NOT NULL,
+  `vida_adulta` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -63,8 +54,8 @@ CREATE TABLE `historia_clinica` (
   `fuenteInformacion` text COLLATE utf8_unicode_ci NOT NULL,
   `motivoConsulta` text COLLATE utf8_unicode_ci NOT NULL,
   `historiaEnfermedadActual` text COLLATE utf8_unicode_ci NOT NULL,
-  `examenMental` text COLLATE utf8_unicode_ci NOT NULL,
-  `diagnostico` text COLLATE utf8_unicode_ci NOT NULL,
+  `examenMental` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `diagnostico` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `formulacionDinamica` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `pronostico` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `tratamiento` text COLLATE utf8_unicode_ci DEFAULT NULL
@@ -77,7 +68,6 @@ CREATE TABLE `historia_clinica` (
 --
 
 CREATE TABLE `paciente` (
-  `idPaciente` bigint(20) NOT NULL,
   `usuario_idUsuario` bigint(20) NOT NULL,
   `nombre` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `apellido` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -96,9 +86,10 @@ CREATE TABLE `paciente` (
 -- Volcado de datos para la tabla `paciente`
 --
 
-INSERT INTO `paciente` (`idPaciente`, `usuario_idUsuario`, `nombre`, `apellido`, `tipoDocumento`, `documentoIdentidad`, `fechaNacimiento`, `departamento`, `ciudad`, `direccion`, `celular`, `contactoEmergencia`, `celularEmergencia`) VALUES
-(15, 20, 'Maria Jose', 'Botero Martínez', 'IDENT. FISCAL PARA EXT.', '1036963286', '1998-06-27', 'amazonas', 'amazonas', 'Cra 54C #66b-37', '3002427778', 'Luciana Martinez', '3002427778'),
-(16, 22, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `paciente` (`usuario_idUsuario`, `nombre`, `apellido`, `tipoDocumento`, `documentoIdentidad`, `fechaNacimiento`, `departamento`, `ciudad`, `direccion`, `celular`, `contactoEmergencia`, `celularEmergencia`) VALUES
+(20, 'Maria José', 'Botero Martínez', 'Cédula', '1036963286', '1998-06-27', 'Antioquia', 'Medellín', 'Cra 54C #66b-37', '3002427778', 'Luciana Martinez', '3002427778'),
+(22, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(27, 'Lorenzo', 'Ryuuji', 'Cédula', '1036963286', '2001-03-19', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -107,14 +98,20 @@ INSERT INTO `paciente` (`idPaciente`, `usuario_idUsuario`, `nombre`, `apellido`,
 --
 
 CREATE TABLE `profesional` (
-  `idProfesional` bigint(20) NOT NULL,
   `usuario_idUsuario` bigint(20) NOT NULL,
   `nombre` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `apellido` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `tipoDocumento` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `documentoIdentidad` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `fechaNacimiento` date NOT NULL,
+  `departamento` varchar(125) COLLATE utf8_unicode_ci NOT NULL,
+  `ciudad` varchar(125) COLLATE utf8_unicode_ci NOT NULL,
   `tituloProfesional` varchar(125) COLLATE utf8_unicode_ci NOT NULL,
   `tarjetaProfesional` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `estadoTarjeta` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `estado` varchar(45) COLLATE utf8_unicode_ci NOT NULL
+  `estado` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `direccion` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `celular` varchar(45) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -137,7 +134,8 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`idUsuario`, `tipoUsuario`, `correo`, `password`) VALUES
 (20, 'paciente', 'majo.botero.m.123@gmail.com', '2706'),
 (21, 'admin', 'admin@admin.com', 'admin123456789'),
-(22, 'paciente', 'ejemplo@ejemplo', '123456');
+(22, 'paciente', 'ejemplo@ejemplo', '123456'),
+(27, 'paciente', 'lorenxd1@gmail.com', '12345');
 
 -- --------------------------------------------------------
 
@@ -146,7 +144,6 @@ INSERT INTO `usuario` (`idUsuario`, `tipoUsuario`, `correo`, `password`) VALUES
 --
 
 CREATE TABLE `voluntario` (
-  `idVoluntario` bigint(20) NOT NULL,
   `usuario_idUsuario` bigint(20) NOT NULL,
   `nombre` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `apellido` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
@@ -160,16 +157,10 @@ CREATE TABLE `voluntario` (
 --
 
 --
--- Indices de la tabla `comprobante_pago`
+-- Indices de la tabla `antecedentes_historia`
 --
-ALTER TABLE `comprobante_pago`
-  ADD PRIMARY KEY (`idComprobante_Pago`);
-
---
--- Indices de la tabla `consulta_paga`
---
-ALTER TABLE `consulta_paga`
-  ADD PRIMARY KEY (`idConsulta_Paga`);
+ALTER TABLE `antecedentes_historia`
+  ADD PRIMARY KEY (`paciente_Usuario_idUsuario`);
 
 --
 -- Indices de la tabla `historia_clinica`
@@ -181,14 +172,12 @@ ALTER TABLE `historia_clinica`
 -- Indices de la tabla `paciente`
 --
 ALTER TABLE `paciente`
-  ADD PRIMARY KEY (`idPaciente`),
   ADD KEY `fk_Paciente_Usuario_idUsuario` (`usuario_idUsuario`);
 
 --
 -- Indices de la tabla `profesional`
 --
 ALTER TABLE `profesional`
-  ADD PRIMARY KEY (`idProfesional`),
   ADD KEY `fk_Profesional_Usuario_idUsuario` (`usuario_idUsuario`);
 
 --
@@ -202,7 +191,6 @@ ALTER TABLE `usuario`
 -- Indices de la tabla `voluntario`
 --
 ALTER TABLE `voluntario`
-  ADD PRIMARY KEY (`idVoluntario`),
   ADD KEY `fk_Voluntario_Usuario_idUsuario` (`usuario_idUsuario`);
 
 --
@@ -210,32 +198,26 @@ ALTER TABLE `voluntario`
 --
 
 --
--- AUTO_INCREMENT de la tabla `comprobante_pago`
---
-ALTER TABLE `comprobante_pago`
-  MODIFY `idComprobante_Pago` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `consulta_paga`
---
-ALTER TABLE `consulta_paga`
-  MODIFY `idConsulta_Paga` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `paciente`
---
-ALTER TABLE `paciente`
-  MODIFY `idPaciente` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `antecedentes_historia`
+--
+ALTER TABLE `antecedentes_historia`
+  ADD CONSTRAINT `antecedentes_historia_ibfk_1` FOREIGN KEY (`paciente_Usuario_idUsuario`) REFERENCES `usuario` (`idUsuario`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `historia_clinica`
+--
+ALTER TABLE `historia_clinica`
+  ADD CONSTRAINT `historia_clinica_ibfk_1` FOREIGN KEY (`idHistoria_Clinica`) REFERENCES `usuario` (`idUsuario`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `paciente`
