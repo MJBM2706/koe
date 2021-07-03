@@ -137,68 +137,62 @@
             <td style="width: 50%;"><strong> Profesional</strong></td> 
         </tr>
          <tr>
+        <td>$DATOS </td>
         <td>$DATOS</td>
-        <td>$DATOS</td>
-        </tr>
-        <tr>
-            
-        </tr>
-        <tr>
-        
         </tr>
         <tr>
             <td colspan="2"><strong> Fuente de informacion</strong></td>
         </tr>
         <tr>
-        <td>$DATOS</td>
+        <td colspan="2">$DATOS</td>
         </tr>
         <tr>
-            <td><strong> Motivo de consulta</strong></td>
+            <td colspan="2"><strong> Motivo de consulta</strong></td>
         </tr>
         <tr>
-        <td>$DATOS</td>
+        <td colspan="2">$DATOS</td>
         </tr>
         <tr>
-            <td><strong> Historia de la enfermedad actual</strong></td>
+            <td colspan="2"><strong> Historia de la enfermedad actual</strong></td>
         </tr>
         <tr>
-        <td>$DATOS</td>
+        <td colspan="2">$DATOS</td>
         </tr>
         <tr>
-            <td><strong> Examen del estado mental</strong></td>
+            <td colspan="2"><strong> Examen del estado mental</strong></td>
         </tr>
         <tr>
-        <td>$DATOS</td>
+        <td colspan="2">$DATOS</td>
         </tr>
         <tr>
-            <td><strong> Examen fisico</strong></td>
+            <td colspan="2"><strong> Examen fisico</strong></td>
         </tr>
         <tr>
-        <td>$DATOS</td>
+        <td colspan="2">$DATOS</td>
         </tr>
         <tr>
-            <td><strong>Diagnostico</strong> </td>
+            <td colspan="2"><strong>Diagnostico</strong> </td>
         </tr>
          <tr>
-        <td>$DATOS</td>
+        <td colspan="2">$DATOS</td>
         </tr>
         <tr>
-            <td><strong> Formulación dinamica</strong></td>
+            <td colspan="2"><strong> Formulación dinamica</strong></td>
         </tr>
          <tr>
-        <td>$DATOS</td>
+        <td colspan="2">$DATOS</td>
         </tr>
         <tr>
-            <td><strong> Prognostico</strong></td>
+            <td colspan="2"><strong> Prognostico</strong></td>
         </tr>
          <tr>
-        <td>$DATOS</td>
+        <td colspan="2">$DATOS</td>
         </tr>
         <tr>
-            <td><strong> Tratamiento</strong></td>
+            <td colspan="2"><strong> Tratamiento</strong></td>
         </tr>
          <tr>
-        <td>$DATOS</td>
+        <td colspan="2">$DATOS</td>
         </tr>
     </tbody>
     </table>
