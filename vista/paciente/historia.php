@@ -118,7 +118,7 @@
           <td>$DATOS</td>
         </tr>
         <tr>
-          <td><strong> Adolecencia</strong></td>
+          <td><strong> Adolescencia</strong></td>
         </tr>
         <tr>
           <td>$DATOS</td>
