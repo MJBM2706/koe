@@ -75,74 +75,130 @@
     </section>
     <aside class="content">
      <table  border="1" width="800">
-    <thead>
+      <thead>
       <tr>
         <th style="text-align: center;">HISTORIA CLÍNICA</th>
       </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Antecendentes Familiares</strong></td>
-      </tr>
-      <tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Antecendentes Familiares</strong></td>
+        </tr>
+        <tr>
+          <td>$DATOS</td>
+        </tr>
+        <tr>
+          <td><strong>Antecendentes Personales (Patologicos)</strong></td>
+        </tr>
+        <tr>
+          <td>$DATOS</td>
+        </tr>
+        <tr>
+          <td><strong>Antecendentes Personales (No Patologicos)</strong></td>
+        </tr>
+        <tr>
+          <td>$DATOS</td>
+        </tr>
+        <tr>
+              <td><strong>Historial Prenatal</strong></td>
+          </tr>
+          <tr>
+          <td>$DATOS</td>
+        </tr>
+          <tr>
+              <td><strong>Niñez Temprana</strong></td>
+          </tr>
+          <tr>
+          <td>$DATOS</td>
+        </tr>
+          <tr>
+              <td><strong> Niñez Media</strong></td>
+          </tr>
+          <tr>
+          <td>$DATOS</td>
+        </tr>
+        <tr>
+          <td><strong> Adolecencia</strong></td>
+        </tr>
+        <tr>
+          <td>$DATOS</td>
+        </tr>
+        <tr>
+              <td><strong> Vida adulta</strong></td>
+        </tr>
+        <tr>
+          <td>$DATOS</td>
+        </tr>
+    </table>
+    <br>
+    <table  border="1" width="800">
+        <tr>
+            <td style="width: 50%;"><strong> Fecha</strong></td>
+            <td style="width: 50%;"><strong> Profesional</strong></td> 
+        </tr>
+         <tr>
         <td>$DATOS</td>
-      </tr>
-      <tr>
-        <td><strong>Antecendentes Personales (Patologicos)</strong></td>
-      </tr>
-      <tr>
         <td>$DATOS</td>
-      </tr>
-      <tr>
-        <td>Antecendentes Personales (No Patologicos)</td>
-      </tr>
-      <tr>
-            <td>Historial Prenatal:</td>
         </tr>
         <tr>
-            <td>Niñez Temprana:</td>
+            
         </tr>
         <tr>
-            <td>Niñez Media:</td>
+        
         </tr>
         <tr>
-            <td>Adolecencia:</td>
+            <td colspan="2"><strong> Fuente de informacion</strong></td>
         </tr>
         <tr>
-            <td>Vida adulta:</td>
+        <td>$DATOS</td>
         </tr>
         <tr>
-            <td>Fecha: </td> 
+            <td><strong> Motivo de consulta</strong></td>
         </tr>
         <tr>
-            <td>Profesional:</td>
+        <td>$DATOS</td>
         </tr>
         <tr>
-            <td>Fuente de informacion:</td>
+            <td><strong> Historia de la enfermedad actual</strong></td>
         </tr>
         <tr>
-            <td>Motivo de consulta:</td>
+        <td>$DATOS</td>
         </tr>
         <tr>
-            <td>Historia de la enfermedad actual:</td>
+            <td><strong> Examen del estado mental</strong></td>
         </tr>
         <tr>
-            <td>Examen del estado mental:</td>
+        <td>$DATOS</td>
         </tr>
         <tr>
-            <td>Examen fisico:</td>
+            <td><strong> Examen fisico</strong></td>
         </tr>
         <tr>
-            <td>Diagnostico:</td>
+        <td>$DATOS</td>
         </tr>
         <tr>
-            <td>Formulación dinamica:</td>
+            <td><strong>Diagnostico</strong> </td>
+        </tr>
+         <tr>
+        <td>$DATOS</td>
         </tr>
         <tr>
-            <td>Prognostico:</td>
+            <td><strong> Formulación dinamica</strong></td>
+        </tr>
+         <tr>
+        <td>$DATOS</td>
         </tr>
         <tr>
-            <td>Tratamiento:</td>
+            <td><strong> Prognostico</strong></td>
+        </tr>
+         <tr>
+        <td>$DATOS</td>
+        </tr>
+        <tr>
+            <td><strong> Tratamiento</strong></td>
+        </tr>
+         <tr>
+        <td>$DATOS</td>
         </tr>
     </tbody>
     </table>
