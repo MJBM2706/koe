@@ -74,10 +74,81 @@
       </ul>
     </section>
     <aside class="content">
-     Aquí va la historia
+     <table  border="1" width="800">
+    <thead>
+      <tr>
+        <th style="text-align: center;">HISTORIA CLÍNICA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Antecendentes Familiares</strong></td>
+      </tr>
+      <tr>
+        <td>$DATOS</td>
+      </tr>
+      <tr>
+        <td><strong>Antecendentes Personales (Patologicos)</strong></td>
+      </tr>
+      <tr>
+        <td>$DATOS</td>
+      </tr>
+      <tr>
+        <td>Antecendentes Personales (No Patologicos)</td>
+      </tr>
+      <tr>
+            <td>Historial Prenatal:</td>
+        </tr>
+        <tr>
+            <td>Niñez Temprana:</td>
+        </tr>
+        <tr>
+            <td>Niñez Media:</td>
+        </tr>
+        <tr>
+            <td>Adolecencia:</td>
+        </tr>
+        <tr>
+            <td>Vida adulta:</td>
+        </tr>
+        <tr>
+            <td>Fecha: </td> 
+        </tr>
+        <tr>
+            <td>Profesional:</td>
+        </tr>
+        <tr>
+            <td>Fuente de informacion:</td>
+        </tr>
+        <tr>
+            <td>Motivo de consulta:</td>
+        </tr>
+        <tr>
+            <td>Historia de la enfermedad actual:</td>
+        </tr>
+        <tr>
+            <td>Examen del estado mental:</td>
+        </tr>
+        <tr>
+            <td>Examen fisico:</td>
+        </tr>
+        <tr>
+            <td>Diagnostico:</td>
+        </tr>
+        <tr>
+            <td>Formulación dinamica:</td>
+        </tr>
+        <tr>
+            <td>Prognostico:</td>
+        </tr>
+        <tr>
+            <td>Tratamiento:</td>
+        </tr>
+    </tbody>
+    </table>
     </aside>
   </div>
-    </div>
+  </div>
     
 
 
@@ -117,8 +188,6 @@
         </ul>
       </nav>
     </div>
-
-
   </footer>
 
 </body>
