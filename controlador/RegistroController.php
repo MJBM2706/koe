@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($errores == '') {
 
-        $nuevo=$metodosBD->crearUsuario($correo,$password);
+        $nuevo=$metodosBD->crearUsuarioPaciente($correo,$password);
         $usuario=$metodosBD->consultarIdUsuario($correo,$password);
         $idUsuario = (int)$usuario[0]['idUsuario'];
         $aux = $metodosBD->crearPaciente($idUsuario);

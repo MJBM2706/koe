@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koe</title>
-    <link rel="icon" type="image/png" href="../../icons/koe.png">
-    <link rel="stylesheet" type="text/css"  href="../../css/bootstrap.css">
-    <link rel="stylesheet" type="text/css"  href="../../css/estilos.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koe</title>
+  <link rel="icon" type="image/png" href="../../icons/koe.png">
+  <link rel="stylesheet" type="text/css"  href="../../css/bootstrap.css">
+  <link rel="stylesheet" type="text/css"  href="../../css/estilos.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<header>
+  <header>
     <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
       <a class="navbar-brand" href="#"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -40,63 +40,36 @@
       </div>
     </nav>
   </header>
- <div class="wrapper fadeInDown">
-     <form style="width: 70%;">
-    <div id="editarRegistros">
-        <div class="container">
-            <div class="row justify-content-center P-3">
-                <H2>REGISTRO DE PACIENTES</H2>
-            </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-4">
-                        <label style="padding-left: 2%;" for="">Nombre:</label>
-                        <input type="text" id="password" class="form-control" name="login" placeholder="Nombre">
-                    </div>
-                    <div class="col-md-4">
-                        <label style="padding-left: 2%;" for="">Apellido:</label>
-                        <input type="text" id="password" class="form-control" name="login" placeholder="Apellido">
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-4">
-                        <label style="padding-left: 2%;" for="">Telefono:</label>
-                        <input type="text" id="password" class="form-control" name="login" placeholder="Telefono">
-                    </div>
-                    <div class="col-md-4">
-                        <label style="padding-left: 2%;" for="">Dirección:</label>  
-                        <input type="Email" id="password" class="form-control" name="login" placeholder="Dirección">
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-4">
-                        <label style="padding-left: 2%;" for="">Correo:</label>
-                        <input type="Email" id="password" class="form-control" name="login" placeholder="Correo">
-                    </div>
-                    <div class="col-md-4">
-                        <label style="padding-left: 2%;" for="">Contraseña:</label>  
-                        <input type="Email" id="password" class="form-control" name="login" placeholder="Contraseña">
-                    </div>
-                </div>
-                <div class="row justify-content-center p-3">
-                    <div class="col-md-4">                    
-                        <input type="button" id="password" Value="Guardar" class="btn-primary" name="login" placeholder="Correo">
-                    </div>
-                </div>
-            </div>
-        </div>  
-        
-        <div id="listaEmpleados">
-          <div class="row justify-content-center p-3">
-              <div class="col-md-12">
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">First</th>
-                      <th scope="col">Last</th>
-                      <th scope="col">Handle</th>
-                      <th scope="col"></th>
-                      </tr>
+  <div class="contenedor">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <a class="btn col-sm-6" href="registro_profesional.php">Registrar Profesional</a>
+        <a class="btn col-sm-6" href="">Registrar Voluntario</a>
+      </div>
+      <div class="row justify-content-center p-5">
+      <div class="col-md-12">
+      <table class="table table-striped collapsible" >
+        <thead>
+          <tr>
+            <th scope="col">Id Interno</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Tipo de documento</th>
+            <th scope="col">Documento</th>
+            <th scope="col">Fecha de nacimiento</th>
+            <th scope="col">Departamento</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Celular</th>
+            <th scope="col">Titulo Profesional</th>
+            <th scope="col">Documento</th>
+            <th scope="col">Documento</th>
+            <th scope="col">Documento</th>
+            <th scope="col">Documento</th>
+            <th scope="col">Documento</th>
+            <th scope="col">Documento</th>
+            <th scope="col">Documento</th>
+          </tr>
                   </thead>
                   <tbody>
                     <tr>
@@ -132,12 +105,18 @@
                   </tbody>
                 </table>
               </div>
-          </div>
-        </div>
-       
-     </form>
- </div>
+      </div>
 
+
+    </div>
+  </div>
+
+    
+
+
+ 
+        
+        
 <!-- PIE -->
 <footer>
     <div class="footer">

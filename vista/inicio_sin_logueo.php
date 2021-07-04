@@ -82,8 +82,8 @@ window.ChatraSetup = {
             <p class="justify-content-justify">El suidicio es la segunda causa principal de defunción en el grupo etario de 15 a 29 años(World Health Organization,2015).
               El suicidio es un grave problema de salud pública; no obstante, es prevenible mediante intervenciones oportunas[...](World Health Organization,2019).
             </p>
-            <a class="btn col-sm-12" href="#">Necesito ayuda inmediata</a>
-              <a class="btn col-sm-12" href="../controlador/RegistroController.php">Agendar cita con un profesional</a>
+            <a class="btn col-sm-12" href="#chatraChatExpanded">Necesito ayuda inmediata</a>
+            <a class="btn col-sm-12" href="../controlador/RegistroController.php">Agendar cita con un profesional</a>
           </div> 
         </div>
       </div>

@@ -74,10 +74,17 @@ class MetodosBD{
 
     }
 
-    function crearUsuario($correo,$pass){
+    function crearUsuarioPaciente($correo,$pass){
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();
         $resultado->query("INSERT INTO usuario (idUsuario,tipoUsuario,correo,password) VALUES (null,'paciente','$correo','$pass')");
+
+    }
+
+    function crearUsuarioProfesional($correo,$pass){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $resultado->query("INSERT INTO usuario (idUsuario,tipoUsuario,correo,password) VALUES (null,'profesional','$correo','$pass')");
 
     }
 
@@ -95,7 +102,18 @@ class MetodosBD{
     function crearPaciente($usuario_idUsuario){
         $this->conn=new Conexion();
         $stm=$this->conn->conexion();
-        $resultado = $stm->query("INSERT INTO paciente (idPaciente,usuario_idUsuario,nombre,apellido,telefono,fechaNacimiento) VALUES (null,'$usuario_idUsuario',null,null,null,null)");
+        $resultado = $stm->query("INSERT INTO paciente (usuario_idUsuario) VALUES ('$usuario_idUsuario')");
+        if($resultado){
+            return true;
+        }
+        return false;
+
+    }
+
+    function crearProfesional($idUsuario,$nombre,$apellido,$tipoDocumento,$documento,$fecha_nacimiento,$departamento,$ciudad,$direccion,$celular,$tituloProfesional,$tarjetaProfesional,$estadoTarjeta){
+        $this->conn=new Conexion();
+        $stm=$this->conn->conexion();
+        $resultado = $stm->query("INSERT INTO profesional(usuario_idUsuario,nombre,apellido,tipoDocumento,documentoIdentidad,fechaNacimiento,departamento,ciudad,direccion,celular,tituloProfesional,tarjetaProfesional,estadoTarjeta) VALUES ('$idUsuario','$nombre','$apellido','$tipoDocumento','$documento','$fecha_nacimiento','$departamento','$ciudad','$direccion','$celular','$tituloProfesional','$tarjetaProfesional','$estadoTarjeta')");
         if($resultado){
             return true;
         }
