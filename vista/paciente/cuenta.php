@@ -194,7 +194,9 @@ window.ChatraSetup = {
                   <?php
                   }}
                   ?>
-                <input class="confirm" type="checkbox" required><span>Acepto los terminos y condiciones de los datos registrados en este sitio. </span>
+                <input class="confirm" name="terminosycondiciones" type="checkbox" required>
+        <label for="terminosycondiciones">Acepto los terminos y condiciones de los datos registrados
+          en este sitio.</label>
 
                 <div class="profile-form"> 
                   
@@ -285,7 +287,9 @@ window.ChatraSetup = {
                 <?php
                   }}
                   ?>
-                <input class="confirm" type="checkbox" required><span>Acepto los terminos y condiciones de los datos registrados en este sitio.</span>
+                <input class="confirm" name="terminosycondiciones" type="checkbox" required>
+        <label for="terminosycondiciones">Acepto los terminos y condiciones de los datos registrados
+          en este sitio.</label>
                 <div class="profile-form">
                   <input type="submit" name="enviarDatosContacto" value="Actualizar">
                 </div>

@@ -14,7 +14,7 @@
 require_once('../../utilidades/metodosBD.php');
 $metodosBD = new MetodosBD();
 
-if(isset($_POST['add'])){
+if(isset($_POST['addProfesional'])){
   $correo = filter_var(strtolower($_POST['correo']),FILTER_SANITIZE_STRING);
   $password = $_POST['pass1'];
   $password2 = $_POST['pass2'];
@@ -273,10 +273,11 @@ if(isset($_POST['add'])){
             </li>
           </ul>
         </div>
-        <input class="confirm" type="checkbox" required><span>Acepto los terminos y condiciones de los datos registrados
-          en este sitio.</span>
+        <input class="confirm" name="terminosycondiciones" type="checkbox" required>
+        <label for="terminosycondiciones">Acepto los terminos y condiciones de los datos registrados
+          en este sitio.</label>
         <div class="profile-form">
-          <input type="submit" name="add" value="Registrar">
+          <input type="submit" name="addProfesional" value="Registrar Profesional">
         </div>
       </form>
     </div>

@@ -61,7 +61,7 @@
     <div class="container">
       <div class="row justify-content-md-center">
         <a class="btn col-sm-6" href="registro_profesional.php">Registrar Profesional</a>
-        <a class="btn col-sm-6" href="">Registrar Voluntario</a>
+        <a class="btn col-sm-6" href="registro_voluntario.php">Registrar Voluntario</a>
       </div>
       <div class="row justify-content-center p-5">
         <div class="col-md-12">

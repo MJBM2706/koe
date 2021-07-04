@@ -88,6 +88,13 @@ class MetodosBD{
 
     }
 
+    function crearUsuarioVoluntario($correo,$pass){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $resultado->query("INSERT INTO usuario (idUsuario,tipoUsuario,correo,password) VALUES (null,'voluntario','$correo','$pass')");
+
+    }
+
     function consultarIdUsuario($correo,$pass){
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();
@@ -114,6 +121,17 @@ class MetodosBD{
         $this->conn=new Conexion();
         $stm=$this->conn->conexion();
         $resultado = $stm->query("INSERT INTO profesional(usuario_idUsuario,nombre,apellido,tipoDocumento,documentoIdentidad,fechaNacimiento,departamento,ciudad,direccion,celular,tituloProfesional,tarjetaProfesional,estadoTarjeta) VALUES ('$idUsuario','$nombre','$apellido','$tipoDocumento','$documento','$fecha_nacimiento','$departamento','$ciudad','$direccion','$celular','$tituloProfesional','$tarjetaProfesional','$estadoTarjeta')");
+        if($resultado){
+            return true;
+        }
+        return false;
+
+    }
+
+    function crearVoluntario($idUsuario,$nombre,$apellido,$tipoDocumento,$documento,$fechaNacimiento,$departamento,$ciudad,$direccion,$celular,$ocupacion,$estadoCapacitacion){
+        $this->conn=new Conexion();
+        $stm=$this->conn->conexion();
+        $resultado = $stm->query("INSERT INTO voluntario (usuario_idUsuario,nombre,apellido,tipoDocumento,documento,fechaNacimiento,departamento,ciudad,direccion,celular,ocupacion,estadoCapacitacion) VALUES ('$idUsuario','$nombre','$apellido','$tipoDocumento','$documento','$fechaNacimiento','$departamento','$ciudad','$direccion','$celular','$ocupacion','$estadoCapacitacion')");
         if($resultado){
             return true;
         }
