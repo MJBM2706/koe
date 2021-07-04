@@ -4,6 +4,46 @@ require 'Conexion.php';
 class MetodosBD{
     private $conn;
 
+    function consultarFiltro($filtro){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $result = $resultado->query("SELECT * FROM profesional WHERE estado = '$filtro'");
+
+    
+        return $result;
+    }
+
+    function listarProfesionales(){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $result = $resultado->query("SELECT * FROM profesional");
+        
+        //$rows = $result->fetch_all(MYSQLI_ASSOC);
+    
+        return $result;
+    }
+
+
+    function deshabilitarProfesional($usuario_idUsuario){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $resultado->query("UPDATE profesional SET estado = 0 WHERE usuario_idUsuario = $usuario_idUsuario");
+        if($resultado){
+            return true;
+        }
+        return false;
+    }
+    
+    function habilitarProfesional($usuario_idUsuario){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $resultado->query("UPDATE profesional SET estado = 1 WHERE usuario_idUsuario = $usuario_idUsuario");
+        if($resultado){
+            return true;
+        }
+        return false;
+    }
+
     function actualizarDatosContactoPaciente($usuario_idUsuario, $departamento,$ciudad,$direccion,$celular,$contactoEmergencia,$celularEmergencia){
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();
@@ -12,7 +52,6 @@ class MetodosBD{
             return true;
         }
         return false;
-    
     }
 
     function actualizarDatosPersonalesPaciente($usuario_idUsuario, $nombre,$apellido,$tipoDocumento,$documentoIdentidad,$fechaNacimiento){

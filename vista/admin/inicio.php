@@ -1,20 +1,30 @@
+
 <?php
-			if(isset($_GET['aksi']) == 'delete'){
-				// escaping, additionally removing everything that could be (html/javascript-) code
-				$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-				$cek = mysqli_query($con, "SELECT * FROM empleados WHERE codigo='$nik'");
-				if(mysqli_num_rows($cek) == 0){
-					echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No se encontraron datos.</div>';
-				}else{
-					$delete = mysqli_query($con, "DELETE FROM empleados WHERE codigo='$nik'");
-					if($delete){
-						echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
-					}else{
-						echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo eliminar los datos.</div>';
-					}
-				}
-			}
-			?>
+  require_once('../../utilidades/metodosBD.php');
+  $metodosBD = new MetodosBD();
+if(isset($_GET['action']))
+  {
+  if($_GET['action'] == 'habilitar'){
+    $idUsuario = $_GET['id'];
+    $update = $metodosBD->habilitarProfesional($idUsuario);
+		if($update){
+		  echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Usuario habilitado correctamente</div>';
+		}else{
+		echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo habilitar el usuario.</div>';
+		}
+	}
+
+  if($_GET['action'] == 'deshabilitar'){
+    $idUsuario = $_GET['id'];
+    $update = $metodosBD->deshabilitarProfesional($idUsuario);
+		if($update){
+		  echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Usuario deshabilitado correctamente</div>';
+		}else{
+		echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo deshabilitar el usuario.</div>';
+		}
+	}
+}
+?>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,6 +78,20 @@
           <label for="touch"><span>Ver Profesionales <img src="../../icons/down-arrow.png" alt=""></span></label>               
           <input type="checkbox" id="touch">     
           <div class="slide">
+            <!-- FILTRO -->
+            <form class="form-inline" method="get">
+              <div class="form-group">
+              
+                <select name="filter" class="form-control" onchange="form.submit()">
+                  
+                  <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
+                  <option selected value=3 >Todos</option>
+                  <option value=0 <?php if($filter == 0){ echo 'selected'; } ?>>Deshabilitado</option>
+                  <option value=1 <?php if($filter == 1){ echo 'selected'; } ?>>Habilitado</option> 
+                </select>
+            </div>
+            </form>
+            <!-- END FILTRO -->
             <table class="table table-striped collapsible" >
               <thead>
                 <tr>
@@ -83,40 +107,65 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>
-                      <button type="button" style="background: antiquewhite;" class="btn btn-secondary">Modificar</button>
-                      <button type="button" class="btn btn-secondary" style="background-color: darkcyan;">Eliminar</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>
-                      <button type="button" class="btn btn-secondary" style="background: antiquewhite;">Modificar</button>
-                      <button type="button" class="btn btn-secondary" style="background-color: darkcyan;">Eliminar</button>
-                    </td>
-                    </tr>
+                <!-- DATOS -->
+                <?php
+                if($filter != 0 AND $filter != 1){
+                  $resultado=$metodosBD->listarProfesionales();
+                  
+                }else{
+                  $resultado=$metodosBD->consultarFiltro($filter);
+                }
+                if(mysqli_num_rows($resultado) == 0){
+					        echo '<tr><td colspan="9">No hay datos.</td></tr>';
+                }else{
+                  while ($row = mysqli_fetch_assoc($resultado)){
+                  echo '
                     <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
+                      <td>'.$row['usuario_idUsuario'].'</td>
+                      <td><a style="color: #120e3c; font-weight: 700;" href="perfil.php?nik='.$row['usuario_idUsuario'].'">'.$row['nombre'].'</a></td>
+                      <td>'.$row['apellido'].'</td>
+                      <td>'.$row['documentoIdentidad'].'</td>
+                      <td>'.$row['celular'].'</td>
+                      <td>'.$row['tituloProfesional'].'</td>
+                      <td>'.$row['tarjetaProfesional'].'</td>
+                      <td>';
+                      if($row['estado'] == '0'){
+                        echo '<label class="deshabilitado">Deshabilitado</label>';
+                      }
+                      else if ($row['estado'] == '1' ){
+                        echo '<label class="habilitado">Habilitado</label>';
+                      }
+                    echo '
+                      </td>
                       <td>
-                        <button type="button" class="btn btn-secondary" style="background: antiquewhite;">Modificar</button>
-                        <button type="button" class="btn btn-secondary" style="background-color: darkcyan;">Eliminar</button>
+
+                        <a href="editar.php?id='.$row['usuario_idUsuario'].'" title="Editar datos"><img src="../../icons/editar.png"></a>
+                        ';
+                    if($row['estado'] == 0){
+                      echo '
+                      <a href="inicio.php?action=habilitar&id='.$row['usuario_idUsuario'].'" title="Habilitar" onclick="return confirm(\'Esta seguro de que desea habilitar al usuario '.$row['nombre'].'?\')" ><img src="../../icons/cheque.png"></a>
                       </td>
                     </tr>
-                  </tbody>
-                </table>
+                      ';
+                    }else {
+                      echo '
+                      <a href="inicio.php?action=deshabilitar&id='.$row['usuario_idUsuario'].'" title="Deshabilitar" onclick="return confirm(\'Esta seguro de que desea deshabilitar al usuario '.$row['nombre'].'?\')"><img src="../../icons/uncheck.png"></a>
+                      </td>
+                    </tr>
+                      ';
+                    }
+                      
+                    
+                  
+                  }
 
-      </div>
+                }
+				        ?>
+                <!-- END DATOS -->
+                </tbody>
+              </table>
+
+          </div>
     </div>
       </div>
 

@@ -414,4 +414,24 @@ span::after {
   height: fit-content;
 }
 
+.deshabilitado {
+  background-color: #f0ad4e;
+  border-radius: .25em;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  padding: .2em .6em .3em;
+
+}
+
+.habilitado {
+  background-color: #5cb85c;
+  border-radius: .25em;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  padding: .2em .6em .3em;
+
+}
+
 /* TABLAS ADMIN END */
