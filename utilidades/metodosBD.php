@@ -62,6 +62,36 @@ class MetodosBD{
     
     }
 
+    function actualizarProfesional($idUsuario,$nombre,$apellido,$tipoDocumento,$documento,$fechaNacimiento,$departamento,$ciudad,$direccion,$celular,$tituloProfesional,$tarjetaProfesional,$estadoTarjeta){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $resultado->query("UPDATE profesional SET nombre = '$nombre', apellido =  '$apellido', tipoDocumento = '$tipoDocumento', documentoIdentidad = '$documento', fechaNacimiento = '$fechaNacimiento', departamento = '$departamento', ciudad = '$ciudad', direccion = '$direccion', celular = '$celular', tituloProfesional = '$tituloProfesional', tarjetaProfesional = '$tarjetaProfesional', estadoTarjeta = '$estadoTarjeta'  WHERE usuario_idUsuario = $idUsuario"); 
+        if($resultado){
+            return true;
+        }
+        return false;
+    }
+
+    function consultarVoluntario($usuario_idUsuario){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $result = $resultado->query("SELECT * FROM voluntario WHERE usuario_idUsuario = $usuario_idUsuario");
+        
+        //$rows = $result->fetch_all(MYSQLI_ASSOC);
+    
+        return $result;
+    }
+    
+    function consultarProfesional($usuario_idUsuario){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $result = $resultado->query("SELECT * FROM profesional WHERE usuario_idUsuario = $usuario_idUsuario");
+        
+        //$rows = $result->fetch_all(MYSQLI_ASSOC);
+    
+        return $result;
+    }
+
     function consultarPaciente($usuario_idUsuario){
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();
@@ -71,6 +101,16 @@ class MetodosBD{
     
         return $result;
     }
+
+    function consultarUsuario($usuario_idUsuario){
+            $this->conn=new Conexion();
+            $resultado=$this->conn->conexion();
+            $result = $resultado->query("SELECT * FROM usuario WHERE idUsuario = $usuario_idUsuario");
+            
+            //$rows = $result->fetch_all(MYSQLI_ASSOC);
+        
+            return $result;
+        } 
 
     function tipoUsuario($usuario_idUsuario){
         $this->conn=new Conexion();

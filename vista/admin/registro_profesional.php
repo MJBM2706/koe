@@ -40,6 +40,7 @@ if(isset($_POST['addProfesional'])){
     or empty($nombre)
     or empty($apellido)
     or empty($tipoDocumento)
+    or empty($documento)
     or empty($fechaNacimiento)
     or empty($departamento)
     or empty($ciudad)

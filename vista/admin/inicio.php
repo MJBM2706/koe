@@ -84,8 +84,8 @@ if(isset($_GET['action']))
               
                 <select name="filter" class="form-control" onchange="form.submit()">
                   
-                  <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
-                  <option selected value=3 >Todos</option>
+                  <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : 3);  ?>
+                  <option value=3 <?php if($filter == 3){ echo 'selected'; } ?>>Todos</option>
                   <option value=0 <?php if($filter == 0){ echo 'selected'; } ?>>Deshabilitado</option>
                   <option value=1 <?php if($filter == 1){ echo 'selected'; } ?>>Habilitado</option> 
                 </select>
@@ -122,12 +122,12 @@ if(isset($_GET['action']))
                   echo '
                     <tr>
                       <td>'.$row['usuario_idUsuario'].'</td>
-                      <td><a style="color: #120e3c; font-weight: 700;" href="perfil.php?nik='.$row['usuario_idUsuario'].'">'.$row['nombre'].'</a></td>
+                      <td><a style="color: #120e3c; font-weight: 700;" href="profesional.php?id='.$row['usuario_idUsuario'].'">'.$row['nombre'].'</a></td>
                       <td>'.$row['apellido'].'</td>
                       <td>'.$row['documentoIdentidad'].'</td>
                       <td>'.$row['celular'].'</td>
                       <td>'.$row['tituloProfesional'].'</td>
-                      <td>'.$row['tarjetaProfesional'].'</td>
+                      <td>'.$row['estadoTarjeta'].'</td>
                       <td>';
                       if($row['estado'] == '0'){
                         echo '<label class="deshabilitado">Deshabilitado</label>';
@@ -139,7 +139,7 @@ if(isset($_GET['action']))
                       </td>
                       <td>
 
-                        <a href="editar.php?id='.$row['usuario_idUsuario'].'" title="Editar datos"><img src="../../icons/editar.png"></a>
+                        <a href="profesional.php?id='.$row['usuario_idUsuario'].'" title="Editar datos"><img src="../../icons/editar.png"></a>
                         ';
                     if($row['estado'] == 0){
                       echo '
