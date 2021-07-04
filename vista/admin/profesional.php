@@ -149,7 +149,7 @@ if(isset($_POST['updateProfesional'])){
             <li>
               <label for="tipoDocumento">Tipo de documento</label>
               <select class="profile-form-option" name="tipoDocumento" id="tipoDocumento" required>
-                <option value="<?php echo $row['tipoDocumento'] ?>"><?php echo $row['tipoDocumento'] ?>
+                <option value="<?php echo $row['tipoDocumento'] ?>"><?php echo $row['tipoDocumento'] ?></option>
                 <option value="Cédula">Cédula</option>
                 <option value="Cédula Extranjeria">Cédula Extranjeria</option>
                 <option value="Doc.Ident. de Extranjeros">Doc.Ident. de Extranjeros</option>
@@ -176,7 +176,7 @@ if(isset($_POST['updateProfesional'])){
             <li>
               <label for="departamento">Departamento</label>
               <select class="profile-form-option" name="departamento" required>
-                <option value="<?php echo $row['departamento'] ?>"><?php echo $row['departamento'] ?>
+                <option value="<?php echo $row['departamento'] ?>"><?php echo $row['departamento'] ?></option>
                 <option value="Amazonas">Amazonas</option>
                 <option value="Antioquia">Antioquia</option>
                 <option value="Arauca">Arauca</option>
@@ -215,7 +215,7 @@ if(isset($_POST['updateProfesional'])){
             <li>
               <label for="ciudad">Ciudad</label>
               <select class="profile-form-option" name="ciudad" id="" required>
-                <option value="<?php echo $row['ciudad'] ?>"><?php echo $row['ciudad'] ?>
+                <option value="<?php echo $row['ciudad'] ?>"><?php echo $row['ciudad'] ?></option>
                 <option value="Leticia">Leticia</option>
                 <option value="Medellín">Medellín</option>
                 <option value="Barranquilla">Barranquilla</option>
@@ -242,9 +242,9 @@ if(isset($_POST['updateProfesional'])){
             <li>
               <label for="estadoTarjeta">Estado de la tarjeta</label>
               <select class="profile-form-option" name="estadoTarjeta" id="" required>
-                <option value="<?php echo $row['estadoTarjeta'] ?>"><?php echo $row['estadoTarjeta'] ?>
+                <option value="<?php echo $row['estadoTarjeta'] ?>"><?php echo $row['estadoTarjeta'] ?></option>
                 <option value="Ok">Ok</option>
-                <option selected value="En proceso">En proceso</option>
+                <option value="En proceso">En proceso</option>
                 <option value="Rechazada">Rechazada</option>
               </select>
             </li>

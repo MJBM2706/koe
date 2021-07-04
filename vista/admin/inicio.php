@@ -4,7 +4,7 @@
   $metodosBD = new MetodosBD();
 if(isset($_GET['action']))
   {
-  if($_GET['action'] == 'habilitar'){
+  if($_GET['action'] == 'habilitarP'){
     $idUsuario = $_GET['id'];
     $update = $metodosBD->habilitarProfesional($idUsuario);
 		if($update){
@@ -14,9 +14,28 @@ if(isset($_GET['action']))
 		}
 	}
 
-  if($_GET['action'] == 'deshabilitar'){
+  if($_GET['action'] == 'deshabilitarP'){
     $idUsuario = $_GET['id'];
     $update = $metodosBD->deshabilitarProfesional($idUsuario);
+		if($update){
+		  echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Usuario deshabilitado correctamente</div>';
+		}else{
+		echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo deshabilitar el usuario.</div>';
+		}
+	}
+  if($_GET['action'] == 'habilitarV'){
+    $idUsuario = $_GET['id'];
+    $update = $metodosBD->habilitarVoluntario($idUsuario);
+		if($update){
+		  echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Usuario habilitado correctamente</div>';
+		}else{
+		echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo habilitar el usuario.</div>';
+		}
+	}
+
+  if($_GET['action'] == 'deshabilitarV'){
+    $idUsuario = $_GET['id'];
+    $update = $metodosBD->deshabilitarVoluntario($idUsuario);
 		if($update){
 		  echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Usuario deshabilitado correctamente</div>';
 		}else{
@@ -75,10 +94,10 @@ if(isset($_GET['action']))
       </div>
       <div class="row justify-content-center p-5">
         <div class="col-md-12">
-          <label for="touch"><span>Ver Profesionales <img src="../../icons/down-arrow.png" alt=""></span></label>               
-          <input type="checkbox" id="touch">     
-          <div class="slide">
-            <!-- FILTRO -->
+          <label for="touch-profesional"><span>Ver Profesionales <img src="../../icons/down-arrow.png" alt=""></span></label>               
+          <input type="checkbox" id="touch-profesional">     
+          <div class="slide-profesional">
+            <!-- FILTRO PROFESIONAL-->
             <form class="form-inline" method="get">
               <div class="form-group">
               
@@ -91,7 +110,7 @@ if(isset($_GET['action']))
                 </select>
             </div>
             </form>
-            <!-- END FILTRO -->
+            <!-- END FILTRO PROFESIONAL -->
             <table class="table table-striped collapsible" >
               <thead>
                 <tr>
@@ -107,13 +126,13 @@ if(isset($_GET['action']))
                 </tr>
               </thead>
               <tbody>
-                <!-- DATOS -->
+                <!-- DATOS PROFESIONAL-->
                 <?php
                 if($filter != 0 AND $filter != 1){
                   $resultado=$metodosBD->listarProfesionales();
                   
                 }else{
-                  $resultado=$metodosBD->consultarFiltro($filter);
+                  $resultado=$metodosBD->consultarFiltroProfesional($filter);
                 }
                 if(mysqli_num_rows($resultado) == 0){
 					        echo '<tr><td colspan="9">No hay datos.</td></tr>';
@@ -143,13 +162,13 @@ if(isset($_GET['action']))
                         ';
                     if($row['estado'] == 0){
                       echo '
-                      <a href="inicio.php?action=habilitar&id='.$row['usuario_idUsuario'].'" title="Habilitar" onclick="return confirm(\'Esta seguro de que desea habilitar al usuario '.$row['nombre'].'?\')" ><img src="../../icons/cheque.png"></a>
+                      <a href="inicio.php?action=habilitarP&id='.$row['usuario_idUsuario'].'" title="Habilitar" onclick="return confirm(\'Esta seguro de que desea habilitar al usuario '.$row['nombre'].'?\')" ><img src="../../icons/cheque.png"></a>
                       </td>
                     </tr>
                       ';
                     }else {
                       echo '
-                      <a href="inicio.php?action=deshabilitar&id='.$row['usuario_idUsuario'].'" title="Deshabilitar" onclick="return confirm(\'Esta seguro de que desea deshabilitar al usuario '.$row['nombre'].'?\')"><img src="../../icons/uncheck.png"></a>
+                      <a href="inicio.php?action=deshabilitarP&id='.$row['usuario_idUsuario'].'" title="Deshabilitar" onclick="return confirm(\'Esta seguro de que desea deshabilitar al usuario '.$row['nombre'].'?\')"><img src="../../icons/uncheck.png"></a>
                       </td>
                     </tr>
                       ';
@@ -161,7 +180,99 @@ if(isset($_GET['action']))
 
                 }
 				        ?>
-                <!-- END DATOS -->
+                <!-- END DATOS PROFESIONAL-->
+                </tbody>
+              </table>
+
+          </div>
+
+          <label for="touch-voluntario"><span>Ver Voluntarios<img src="../../icons/down-arrow.png" alt=""></span></label>               
+          <input type="checkbox" id="touch-voluntario">     
+          <div class="slide-voluntario">
+            <!-- FILTRO VOLUNTARIO -->
+            <form class="form-inline" method="get">
+              <div class="form-group">
+              
+                <select name="filter" class="form-control" onchange="form.submit()">
+                  
+                  <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : 3);  ?>
+                  <option value=3 <?php if($filter == 3){ echo 'selected'; } ?>>Todos</option>
+                  <option value=0 <?php if($filter == 0){ echo 'selected'; } ?>>Deshabilitado</option>
+                  <option value=1 <?php if($filter == 1){ echo 'selected'; } ?>>Habilitado</option> 
+                </select>
+            </div>
+            </form>
+            <!-- END FILTRO VOLUNTARIO-->
+            <table class="table table-striped collapsible" >
+              <thead>
+                <tr>
+                  <th scope="col">Id Interno</th>
+                  <th scope="col">Nombres</th>
+                  <th scope="col">Apellidos</th>
+                  <th scope="col">Documento</th>
+                  <th scope="col">Celular</th>
+                  <th scope="col">Ocupacion</th>
+                  <th scope="col">Capacitacion</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- DATOS VOLUNTARIO -->
+                <?php
+                if($filter != 0 AND $filter != 1){
+                  $resultado=$metodosBD->listarVoluntarios();
+                  
+                }else{
+                  $resultado=$metodosBD->consultarFiltroVoluntario($filter);
+                }
+                if(mysqli_num_rows($resultado) == 0){
+					        echo '<tr><td colspan="9">No hay datos.</td></tr>';
+                }else{
+                  while ($row = mysqli_fetch_assoc($resultado)){
+                  echo '
+                    <tr>
+                      <td>'.$row['usuario_idUsuario'].'</td>
+                      <td><a style="color: #120e3c; font-weight: 700;" href="voluntario.php?id='.$row['usuario_idUsuario'].'">'.$row['nombre'].'</a></td>
+                      <td>'.$row['apellido'].'</td>
+                      <td>'.$row['documento'].'</td>
+                      <td>'.$row['celular'].'</td>
+                      <td>'.$row['ocupacion'].'</td>
+                      <td>'.$row['estadoCapacitacion'].'</td>
+                      <td>';
+                      if($row['estado'] == '0'){
+                        echo '<label class="deshabilitado">Deshabilitado</label>';
+                      }
+                      else if ($row['estado'] == '1' ){
+                        echo '<label class="habilitado">Habilitado</label>';
+                      }
+                    echo '
+                      </td>
+                      <td>
+
+                        <a href="voluntario.php?id='.$row['usuario_idUsuario'].'" title="Editar datos"><img src="../../icons/editar.png"></a>
+                        ';
+                    if($row['estado'] == 0){
+                      echo '
+                      <a href="inicio.php?action=habilitarV&id='.$row['usuario_idUsuario'].'" title="Habilitar" onclick="return confirm(\'Esta seguro de que desea habilitar al usuario '.$row['nombre'].'?\')" ><img src="../../icons/cheque.png"></a>
+                      </td>
+                    </tr>
+                      ';
+                    }else {
+                      echo '
+                      <a href="inicio.php?action=deshabilitarV&id='.$row['usuario_idUsuario'].'" title="Deshabilitar" onclick="return confirm(\'Esta seguro de que desea deshabilitar al usuario '.$row['nombre'].'?\')"><img src="../../icons/uncheck.png"></a>
+                      </td>
+                    </tr>
+                      ';
+                    }
+                      
+                    
+                  
+                  }
+
+                }
+				        ?>
+                <!-- END DATOS VOLUNTARIO-->
                 </tbody>
               </table>
 

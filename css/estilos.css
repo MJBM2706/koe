@@ -394,7 +394,16 @@ span::after {
   right: 10%;
 }
 
-.slide {
+.slide-profesional {
+  clear: both;
+  width: 100%;
+  height: 0px;
+  overflow: hidden;
+  text-align: center;
+  transition: height .4s ease;
+}
+
+.slide-voluntario {
   clear: both;
   width: 100%;
   height: 0px;
@@ -404,13 +413,23 @@ span::after {
 }
 
 
-#touch {
+#touch-profesional {
   position: absolute;
   opacity: 0;
   height: 0px;
 }
 
-#touch:checked+.slide {
+#touch-voluntario {
+  position: absolute;
+  opacity: 0;
+  height: 0px;
+}
+
+#touch-profesional:checked+.slide-profesional {
+  height: fit-content;
+}
+
+#touch-voluntario:checked+.slide-voluntario {
   height: fit-content;
 }
 

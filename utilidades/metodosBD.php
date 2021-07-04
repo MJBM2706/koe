@@ -4,10 +4,19 @@ require 'Conexion.php';
 class MetodosBD{
     private $conn;
 
-    function consultarFiltro($filtro){
+    function consultarFiltroProfesional($filtro){
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();
         $result = $resultado->query("SELECT * FROM profesional WHERE estado = '$filtro'");
+
+    
+        return $result;
+    }
+
+    function consultarFiltroVoluntario($filtro){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $result = $resultado->query("SELECT * FROM voluntario WHERE estado = '$filtro'");
 
     
         return $result;
@@ -17,6 +26,16 @@ class MetodosBD{
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();
         $result = $resultado->query("SELECT * FROM profesional");
+        
+        //$rows = $result->fetch_all(MYSQLI_ASSOC);
+    
+        return $result;
+    }
+
+    function listarVoluntarios(){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $result = $resultado->query("SELECT * FROM voluntario");
         
         //$rows = $result->fetch_all(MYSQLI_ASSOC);
     
@@ -33,11 +52,31 @@ class MetodosBD{
         }
         return false;
     }
+
+    function deshabilitarVoluntario($usuario_idUsuario){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $resultado->query("UPDATE voluntario SET estado = 0 WHERE usuario_idUsuario = $usuario_idUsuario");
+        if($resultado){
+            return true;
+        }
+        return false;
+    }
     
     function habilitarProfesional($usuario_idUsuario){
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();
         $resultado->query("UPDATE profesional SET estado = 1 WHERE usuario_idUsuario = $usuario_idUsuario");
+        if($resultado){
+            return true;
+        }
+        return false;
+    }
+
+    function habilitarVoluntario($usuario_idUsuario){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $resultado->query("UPDATE voluntario SET estado = 1 WHERE usuario_idUsuario = $usuario_idUsuario");
         if($resultado){
             return true;
         }
@@ -66,6 +105,16 @@ class MetodosBD{
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();
         $resultado->query("UPDATE profesional SET nombre = '$nombre', apellido =  '$apellido', tipoDocumento = '$tipoDocumento', documentoIdentidad = '$documento', fechaNacimiento = '$fechaNacimiento', departamento = '$departamento', ciudad = '$ciudad', direccion = '$direccion', celular = '$celular', tituloProfesional = '$tituloProfesional', tarjetaProfesional = '$tarjetaProfesional', estadoTarjeta = '$estadoTarjeta'  WHERE usuario_idUsuario = $idUsuario"); 
+        if($resultado){
+            return true;
+        }
+        return false;
+    }
+
+    function actualizarVoluntario($idUsuario,$nombre,$apellido,$tipoDocumento,$documento,$fechaNacimiento,$departamento,$ciudad,$direccion,$celular,$ocupacion,$estadoCapacitacion){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $resultado->query("UPDATE voluntario SET nombre = '$nombre', apellido =  '$apellido', tipoDocumento = '$tipoDocumento', documento = '$documento', fechaNacimiento = '$fechaNacimiento', departamento = '$departamento', ciudad = '$ciudad', direccion = '$direccion', celular = '$celular', ocupacion = '$ocupacion', estadoCapacitacion = '$estadoCapacitacion' WHERE usuario_idUsuario = $idUsuario"); 
         if($resultado){
             return true;
         }
