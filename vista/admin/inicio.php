@@ -1,3 +1,20 @@
+<?php
+			if(isset($_GET['aksi']) == 'delete'){
+				// escaping, additionally removing everything that could be (html/javascript-) code
+				$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
+				$cek = mysqli_query($con, "SELECT * FROM empleados WHERE codigo='$nik'");
+				if(mysqli_num_rows($cek) == 0){
+					echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No se encontraron datos.</div>';
+				}else{
+					$delete = mysqli_query($con, "DELETE FROM empleados WHERE codigo='$nik'");
+					if($delete){
+						echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
+					}else{
+						echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo eliminar los datos.</div>';
+					}
+				}
+			}
+			?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,50 +64,44 @@
         <a class="btn col-sm-6" href="">Registrar Voluntario</a>
       </div>
       <div class="row justify-content-center p-5">
-      <div class="col-md-12">
-      <table class="table table-striped collapsible" >
-        <thead>
-          <tr>
-            <th scope="col">Id Interno</th>
-            <th scope="col">Nombres</th>
-            <th scope="col">Apellidos</th>
-            <th scope="col">Tipo de documento</th>
-            <th scope="col">Documento</th>
-            <th scope="col">Fecha de nacimiento</th>
-            <th scope="col">Departamento</th>
-            <th scope="col">Ciudad</th>
-            <th scope="col">Direccion</th>
-            <th scope="col">Celular</th>
-            <th scope="col">Titulo Profesional</th>
-            <th scope="col">Documento</th>
-            <th scope="col">Documento</th>
-            <th scope="col">Documento</th>
-            <th scope="col">Documento</th>
-            <th scope="col">Documento</th>
-            <th scope="col">Documento</th>
-            <th scope="col">Documento</th>
-          </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>
-                        <button type="button" style="background: antiquewhite;" class="btn btn-secondary">Modificar</button>
-                        <button type="button" class="btn btn-secondary" style="background-color: darkcyan;">Eliminar</button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                      <td>
-                        <button type="button" class="btn btn-secondary" style="background: antiquewhite;">Modificar</button>
-                        <button type="button" class="btn btn-secondary" style="background-color: darkcyan;">Eliminar</button>
-                      </td>
+        <div class="col-md-12">
+          <label for="touch"><span>Ver Profesionales <img src="../../icons/down-arrow.png" alt=""></span></label>               
+          <input type="checkbox" id="touch">     
+          <div class="slide">
+            <table class="table table-striped collapsible" >
+              <thead>
+                <tr>
+                  <th scope="col">Id Interno</th>
+                  <th scope="col">Nombres</th>
+                  <th scope="col">Apellidos</th>
+                  <th scope="col">Documento</th>
+                  <th scope="col">Celular</th>
+                  <th scope="col">Titulo Profesional</th>
+                  <th scope="col">Tarjeta Profesional</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>
+                      <button type="button" style="background: antiquewhite;" class="btn btn-secondary">Modificar</button>
+                      <button type="button" class="btn btn-secondary" style="background-color: darkcyan;">Eliminar</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>
+                      <button type="button" class="btn btn-secondary" style="background: antiquewhite;">Modificar</button>
+                      <button type="button" class="btn btn-secondary" style="background-color: darkcyan;">Eliminar</button>
+                    </td>
                     </tr>
                     <tr>
                       <th scope="row">3</th>
@@ -104,7 +115,9 @@
                     </tr>
                   </tbody>
                 </table>
-              </div>
+
+      </div>
+    </div>
       </div>
 
 
