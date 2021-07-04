@@ -147,7 +147,8 @@ if(isset($_POST['add'])){
   </header>
   <div class="contenedor">
     <div class="container">
-      <h4>Registro de Profesional</h4>
+      <h4><a style="margin-right: 15px;" href="inicio.php"><img src="../../icons/back-track.png" alt="Ir atrás"></a>Registro de Profesional</h4>
+      
       <hr>
       <form action="" method="post" class="profile-form">
         <div>
