@@ -4,37 +4,29 @@ if (!isset($_SESSION['tipo'])) {
     header('Location: ../../index.php');
     die();
 }
+
 include '../../utilidades/metodosBD.php';
 $usuario_idUsuario = $_SESSION['idUsuario'];
-$metodosBD = new MetodosBD();
-$resultado = $metodosBD->consultarProfesional($usuario_idUsuario);
-if(mysqli_num_rows($resultado) > 0){
-  while ($row = mysqli_fetch_assoc($resultado)){
-    $userName = $row['nombre'];
-    $estado = $row['estado'];
-  }
-}
 
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Koe</title>
-  <link rel="icon" type="image/png" href="../../icons/koe.png">
-  <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koe</title>
+    <link rel="icon" type="image/png" href="../../icons/koe.png">
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../css/estilos.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  <header>
+<header>
     <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
       <a class="navbar-brand" href="#"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -61,19 +53,18 @@ if(mysqli_num_rows($resultado) > 0){
       </div>
     </nav>
   </header>
-
   <div class="contenedor">
-    <div class="row container">
-    <section class="sidebar navbar-dark">
+  <div class="row container">
+  <section class="sidebar navbar-dark">
       <ul class="navbar-nav" >
         <li class='nav-item  option'>
-          <a class=' active nav-link' href="#">
+          <a class=' nav-link' href="inicio.php">
             <img class="icon" src="../../icons/house.png" alt="" srcset="">
             <p >Inicio</p>
           </a>
         </li>
         <li class='option'>
-          <a class='nav-link' href="cuenta.php">
+          <a class='active  nav-link' href="#">
             <img class="icon" src="../../icons/user.png" alt="" srcset="">
             <p>Mi Cuenta</p>
           </a>
@@ -85,28 +76,22 @@ if(mysqli_num_rows($resultado) > 0){
           </a>
         </li>
         <li class='option'>
-          <a class='nav-link' href="agenda.php">
+          <a class='nav-link' href="#">
             <img class="icon" src="../../icons/appointment.png" alt="" srcset="">
-            <p>Mi Agenda</p>
+            <p>Mi agenda</p>
           </a>
         </li>
       </ul>
     </section>
-    <aside class="content">
-      <h2><?php echo "Bienvenid@, $userName" ?></h2>
-      <p>El equipo de Koe te agradece por su dedicacion y excelente trabajo.</p>
-<?php
-if ($estado == '1'){
-  echo ("<a class='btn' href='https://app.chatra.io/conversations/mychat'>Ir al Chat</a>");
-}
-?>
-      
-      <img src="../../img/bienestar.jpg" alt="">
-    </aside>
-  </div>
+        <aside class=" content">
+            <iframe src="https://admin.timekit.io/a/apps/test-iu4kta-7412/bookings" height="100%" frameborder="0"></iframe>
+        </aside>
     </div>
-    
 
+
+  </div>
+
+    
 
   <footer>
     <div class="footer">
@@ -148,6 +133,7 @@ if ($estado == '1'){
 
   </footer>
 
+ 
 </body>
 
 </html>

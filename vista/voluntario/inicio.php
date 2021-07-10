@@ -11,6 +11,7 @@ $resultado = $metodosBD->consultarVoluntario($usuario_idUsuario);
 if(mysqli_num_rows($resultado) > 0){
   while ($row = mysqli_fetch_assoc($resultado)){
     $userName = $row['nombre'];
+    $estado = $row['estado'];
   }
 }
 
@@ -94,6 +95,12 @@ if(mysqli_num_rows($resultado) > 0){
     <aside class="content">
       <h2><?php echo "Bienvenid@, $userName" ?></h2>
       <p>El equipo de Koe te agradece por su dedicacion y excelente trabajo.</p>
+<?php
+if ($estado == '1'){
+  echo ("<a class='btn' href='https://app.chatra.io/conversations/mychat'>Ir al Chat</a>");
+}
+?>
+      
       <img src="../../img/bienestar.jpg" alt="">
     </aside>
   </div>
