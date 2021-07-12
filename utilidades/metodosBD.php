@@ -4,6 +4,41 @@ require 'Conexion.php';
 class MetodosBD{
     private $conn;
 
+    function actualizarAntecedentesHistoria($idPaciente,$antecedentesFam,$antecedentesFamPat,$antecedentesFamNoPat,$historialPrenatal,$niñezTemprana,$niñezMedia,$adolescencia,$vidaAdulta){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $resultado->query("UPDATE paciente SET antecedentes_fam = '$antecedentesFam', antecedentes_fam_pat =  '$antecedentesFamPat', antecedentes_fam_no_pat = '$antecedentesFamNoPat', historial_prenatal = '$historialPrenatal', niñez_temprana = '$niñezTemprana', niñez_media = '$niñezMedia', adolescencia = '$adolescencia', vida_adulta = '$vidaAdulta' WHERE paciente_Usuario_idUsuario = $idPaciente");
+        if($resultado){
+            return true;
+        }
+        return false;
+    }
+
+    function CrearAntecedentesHistoria($idPaciente,$antecedentesFam,$antecedentesFamPat,$antecedentesFamNoPat,$historialPrenatal,$niñezTemprana,$niñezMedia,$adolescencia,$vidaAdulta){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $resultado->query("INSERT INTO antecedentes_historia (paciente_Usuario_idUsuario,antecedentes_fam,antecedentes_fam_pat,antecedentes_fam_no_pat,historial_prenatal,niñez_temprana,niñez_media,adolescencia,vida_adulta) VALUES
+         ('$idPaciente','$antecedentesFam','$antecedentesFamPat','$antecedentesFamNoPat','$historialPrenatal','$niñezTemprana','$niñezMedia ','$adolescencia','$vidaAdulta')");
+        if($resultado){
+            return true;
+        }
+        return false;
+    }
+
+
+    function CrearEntradaHistoria($idPaciente,$idProfesional,$fuenteInformacion,$motivoConsulta,$enfermedadActual,$examenMental,$diagnostico,$formulacionDinamica,$pronostico,$tratamiento){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $resultado->query("INSERT INTO historia_clinica (paciente_Usuario_idUsuario,profesional_Usuario_idUsuario,fuenteInformacion,motivoConsulta,historiaEnfermedadActual,examenMental,diagnostico,formulacionDinamica,pronostico,tratamiento) VALUES
+         ('$idPaciente','$idProfesional','$fuenteInformacion','$motivoConsulta','$enfermedadActual','$examenMental','$diagnostico','$formulacionDinamica','$pronostico','$tratamiento')");
+        if($resultado){
+            return true;
+        }
+        return false;
+    }
+
+    
+
     function consultarFiltroProfesional($filtro){
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();
@@ -145,6 +180,16 @@ class MetodosBD{
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();
         $result = $resultado->query("SELECT * FROM paciente WHERE usuario_idUsuario = $usuario_idUsuario");
+        
+        //$rows = $result->fetch_all(MYSQLI_ASSOC);
+    
+        return $result;
+    }
+
+    function buscarPaciente($busqueda){
+      $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $result = $resultado->query("SELECT * FROM paciente WHERE documentoIdentidad LIKE  '%$busqueda%' OR nombre LIKE  '%$busqueda%'");
         
         //$rows = $result->fetch_all(MYSQLI_ASSOC);
     
