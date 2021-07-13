@@ -81,9 +81,9 @@ $metodosBD = new MetodosBD();
           </a>
         </li>
         <li class='option'>
-          <a class='nav-link' href="citas.php">
+          <a class='nav-link' href="agenda.php">
             <img class="icon" src="../../icons/appointment.png" alt="" srcset="">
-            <p>Agendar Cita</p>
+            <p>Mi agenda</p>
           </a>
         </li>
       </ul>
