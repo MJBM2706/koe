@@ -90,7 +90,7 @@ $metodosBD = new MetodosBD();
     </section>
     <aside class="content">
       <!-- FILTRO PACIENTE-->
-            <form class="form-inline" method="get">
+            <form id="form" class="form-inline" method="get">
               <div class="form-group">
               <input name="key" class="form-control" type="text" >
               <div class="btn" onclick="form.submit()"><img src="../../icons/magnifying-glass.png" alt="Buscar" width="20px"></div>
