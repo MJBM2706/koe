@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-07-2021 a las 01:58:44
+-- Tiempo de generación: 18-07-2021 a las 22:21:55
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -48,7 +48,7 @@ CREATE TABLE `antecedentes_historia` (
 CREATE TABLE `historia_clinica` (
   `idHistoria_Clinica` bigint(20) NOT NULL,
   `paciente_Usuario_idUsuario` bigint(20) NOT NULL,
-  `profesional_Usuario_idUsuario` bigint(20) NOT NULL,
+  `profesional_voluntario_IdUsuario` bigint(20) NOT NULL,
   `fecha` date NOT NULL DEFAULT current_timestamp(),
   `fuenteInformacion` text COLLATE utf8_unicode_ci NOT NULL,
   `motivoConsulta` text COLLATE utf8_unicode_ci NOT NULL,
@@ -57,7 +57,8 @@ CREATE TABLE `historia_clinica` (
   `diagnostico` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `formulacionDinamica` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `pronostico` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `tratamiento` text COLLATE utf8_unicode_ci DEFAULT NULL
+  `tratamiento` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `tipoProfesional_Voluntario` varchar(60) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -86,9 +87,7 @@ CREATE TABLE `paciente` (
 --
 
 INSERT INTO `paciente` (`usuario_idUsuario`, `nombre`, `apellido`, `tipoDocumento`, `documentoIdentidad`, `fechaNacimiento`, `departamento`, `ciudad`, `direccion`, `celular`, `contactoEmergencia`, `celularEmergencia`) VALUES
-(20, 'Maria José', 'Botero Martínez', 'Cédula', '1036963286', '1998-06-27', 'Antioquia', 'Medellín', 'Cra 54C #66b-37', '3002427778', 'Luciana Martinez', '3002427778'),
-(27, 'Lorenzo', 'Ryuuji', 'Cédula', '1036963286', '2001-03-19', NULL, NULL, NULL, NULL, NULL, NULL),
-(31, 'Luciana', 'Martínez Riaza', 'Cédula', '43834665', '1976-09-01', NULL, NULL, NULL, NULL, NULL, NULL);
+(38, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -118,8 +117,7 @@ CREATE TABLE `profesional` (
 --
 
 INSERT INTO `profesional` (`usuario_idUsuario`, `nombre`, `apellido`, `tipoDocumento`, `documentoIdentidad`, `fechaNacimiento`, `departamento`, `ciudad`, `direccion`, `celular`, `tituloProfesional`, `tarjetaProfesional`, `estadoTarjeta`, `estado`) VALUES
-(30, 'Pepito', 'Londoño', 'Cédula', '1036963286', '2021-07-29', 'Antioquia', 'Medellín', 'Cra 100 #45', '3002427778', 'Psicólogo', '10258546', 'Ok', 1),
-(37, 'Juan', 'López', 'Cédula', '4485324', '2021-07-30', 'Amazonas', 'Leticia', 'Cra 45 #67-30', '3002427778', 'Psiquiatra', '102525546', 'En proceso', 0);
+(39, 'Profesional', 'Prueba', 'Cédula', '283727119', '1990-01-01', 'Amazonas', 'Leticia', 'Prueba Direccion', '3002427778', 'Psiquiatra', '10258546', 'En proceso', 0);
 
 -- --------------------------------------------------------
 
@@ -139,14 +137,10 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `tipoUsuario`, `correo`, `password`) VALUES
-(20, 'paciente', 'majo.botero.m.123@gmail.com', '2706'),
 (21, 'admin', 'admin@admin.com', '123456789'),
-(22, 'paciente', 'ejemplo@ejemplo', '123456'),
-(27, 'paciente', 'lorenxd1@gmail.com', '12345'),
-(30, 'profesional', 'pepito@profesional.com', '123'),
-(31, 'paciente', 'lucianamart1@hotmail.com', 'dolly2011x'),
-(36, 'voluntario', 'pepito@voluntario.com', '123'),
-(37, 'profesional', 'ejemplo2@profesional.com', '123');
+(38, 'paciente', 'paciente@prueba.com', '123'),
+(39, 'profesional', 'profesional@prueba.com', '123'),
+(40, 'voluntario', 'voluntario@prueba.com', '123');
 
 -- --------------------------------------------------------
 
@@ -175,7 +169,7 @@ CREATE TABLE `voluntario` (
 --
 
 INSERT INTO `voluntario` (`usuario_idUsuario`, `nombre`, `apellido`, `tipoDocumento`, `documento`, `fechaNacimiento`, `departamento`, `ciudad`, `direccion`, `celular`, `ocupacion`, `estadoCapacitacion`, `estado`) VALUES
-(36, 'Majo', 'Botero', 'Cédula', '1036963286', '2021-07-22', 'Antioquia', 'Medellín', 'Carrera 54 C #66B - 37', '3002427778', 'Estudiante', 'En Proceso', 1);
+(40, 'Voluntario', 'Prueba', 'Cédula', '290683764', '1984-06-20', 'Atlántico', 'Barranquilla', 'Prueba Direccion', '3002427778', 'Estudiante', 'En proceso', 0);
 
 --
 -- Índices para tablas volcadas
@@ -230,13 +224,13 @@ ALTER TABLE `voluntario`
 -- AUTO_INCREMENT de la tabla `historia_clinica`
 --
 ALTER TABLE `historia_clinica`
-  MODIFY `idHistoria_Clinica` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idHistoria_Clinica` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `idUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- Restricciones para tablas volcadas
