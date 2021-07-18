@@ -12,17 +12,12 @@ $metodosBD = new MetodosBD();
 if (isset($_POST['enviarDatos'])){
   $nombre = $_POST['nombre'];
   $apellido = $_POST['apellido'];
-  $tipoDocumento = $_POST['tipoDocumento'];
-  $documento = $_POST['documento'];
   $fechaNacimiento = $_POST['fechaNacimiento'];
-  $ocupacion = $_POST['ocupacion'];
-  $estadoCapacitacion = $_POST['estadoCapacitacion'];
-
   $departamento = $_POST['departamento'];
   $ciudad = $_POST['ciudad'];
   $direccion = $_POST['direccion'];
   $celular = $_POST['celular'];
-  $resultt = $metodosBD->actualizarVoluntario($usuario_idUsuario,$nombre,$apellido,$tipoDocumento,$documento,$fechaNacimiento,$departamento,$ciudad,$direccion,$celular,$ocupacion,$estadoCapacitacion);
+  $resultt = $metodosBD->actualizarMiCuentaVoluntario($usuario_idUsuario,$nombre,$apellido,$fechaNacimiento,$departamento,$ciudad,$direccion,$celular);
   if($resultt != true){
     echo "<script>alert('No se pudieron actualizar los datos');</script>";
   }else {
@@ -116,7 +111,7 @@ if (isset($_POST['enviarDatos'])){
             $resultado = $metodosBD->consultarVoluntario($usuario_idUsuario);
             if(mysqli_num_rows($resultado) > 0){
               while ($row = mysqli_fetch_assoc($resultado)){
-            ?>
+                ?>
                   <div>
                     <ul class="profile-info contact-info">
                         <li>
@@ -130,7 +125,7 @@ if (isset($_POST['enviarDatos'])){
                         <li>
                             <p>Tipo de documento</p>
  
-                            <select class="profile-form-option" name="tipoDocumento" id="tipoDocumento"  required>
+                            <select class="profile-form-option" name="tipoDocumento" id="tipoDocumento"  disabled required>
                             <option value="<?php echo $row['tipoDocumento'] ?>"><?php echo $row['tipoDocumento'] ?>
                                 <option value="Cédula">Cédula</option>
                                 <option value="Cédula Extranjeria">Cédula Extranjeria</option>
@@ -150,7 +145,7 @@ if (isset($_POST['enviarDatos'])){
                         </li>
                         <li>
                             <p>Documento de Identidad</p>
-                            <input type="text" name="documento" placeholder="Tu documento de identidad" value="<?php echo $row['documento'] ?>" required>
+                            <input type="text" name="documento" placeholder="Tu documento de identidad" value="<?php echo $row['documento'] ?>" disabled required>
                         </li>
                         <li>
                             <p>Fecha de Nacimiento</p>
@@ -162,7 +157,7 @@ if (isset($_POST['enviarDatos'])){
                         </li>
                         <li>
                             <p>Ocupacion</p>
-                            <input type="text" name="ocupacion" value="<?php echo $row['ocupacion'] ?>" required> 
+                            <input type="text" name="ocupacion" value="<?php echo $row['ocupacion'] ?>" disabled required> 
                         </li>
                         <li>
                             <p>Estado Capacitación</p>
@@ -234,10 +229,11 @@ if (isset($_POST['enviarDatos'])){
                             <input type="tel" name="celular" placeholder="Tu Celular" value="<?php echo $row['celular'] ?>" required>
                         </li>
                     </ul>
-                </div>
-                <?php
-                  }}
-                  ?>
+                  </div>
+                  <?php
+              }
+            }
+            ?>
                 <input class="confirm" name="terminosycondiciones" type="checkbox" required>
         <label for="terminosycondiciones">Acepto los terminos y condiciones de los datos registrados
           en este sitio.</label>

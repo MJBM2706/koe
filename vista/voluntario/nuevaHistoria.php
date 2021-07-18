@@ -134,26 +134,6 @@ if(isset($_POST['addHistoria'])){
               <label for="enfermedadActual">Historia de la enfermedad Actual</label>
               <textarea name="enfermedadActual" id="" cols="30" rows="2" required></textarea>
             </li>
-            <li style="width: 100%;">
-              <label for="examenMental">Examen Mental</label>
-              <textarea name="examenMental" id="" cols="30" rows="2" required></textarea>
-            </li>
-            <li style="width: 100%;">
-              <label for="diagnostico">Diagnóstico</label>
-              <textarea name="diagnostico" id="" cols="30" rows="2" required></textarea>
-            </li>
-            <li style="width: 100%;">
-              <label for="formulacionDinamica">Formulación Dinámica</label>
-              <textarea name="formulacionDinamica" id="" cols="30" rows="2" required></textarea>
-            </li>
-            <li style="width: 100%;">
-              <label for="pronostico">Pronóstico</label>
-              <textarea name="pronostico" id="" cols="30" rows="2" required></textarea>
-            </li>
-            <li style="width: 100%;">
-              <label for="tratamiento">Tratamiento</label>
-              <textarea name="tratamiento" id="" cols="30" rows="2" required></textarea>
-            </li>
           </ul>
         </div>
         <div class="profile-form">
