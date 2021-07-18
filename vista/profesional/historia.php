@@ -60,55 +60,62 @@ $metodosBD = new MetodosBD();
 
   <div class="contenedor">
     <div class="row container">
-    <section class="sidebar navbar-dark">
-      <ul class="navbar-nav" >
-        <li class='nav-item  option'>
-          <a class='  nav-link' href="inicio.php">
-            <img class="icon" src="../../icons/house.png" alt="" srcset="">
-            <p >Inicio</p>
-          </a>
-        </li>
-        <li class='option'>
-          <a class='nav-link' href="cuenta.php">
-            <img class="icon" src="../../icons/user.png" alt="" srcset="">
-            <p>Mi Cuenta</p>
-          </a>
-        </li>
-        <li class='option'>
-          <a class='active nav-link' href="#">
-            <img class="icon" src="../../icons/medical_record.png" alt="" srcset="">
-            <p>Historial Clinico</p>
-          </a>
-        </li>
-        <li class='option'>
-          <a class='nav-link' href="agenda.php">
-            <img class="icon" src="../../icons/appointment.png" alt="" srcset="">
-            <p>Mi agenda</p>
-          </a>
-        </li>
-      </ul>
-    </section>
-    <aside class="content">
-      <!-- FILTRO PACIENTE-->
+      <section class="sidebar navbar-dark">
+        <ul class="navbar-nav" >
+          <li class='nav-item  option'>
+            <a class='  nav-link' href="inicio.php">
+              <img class="icon" src="../../icons/house.png" alt="" srcset="">
+              <p >Inicio</p>
+            </a>
+          </li>
+          <li class='option'>
+            <a class='nav-link' href="cuenta.php">
+              <img class="icon" src="../../icons/user.png" alt="" srcset="">
+              <p>Mi Cuenta</p>
+            </a>
+          </li>
+          <li class='option'>
+            <a class='active nav-link' href="#">
+              <img class="icon" src="../../icons/medical_record.png" alt="" srcset="">
+              <p>Historial Clinico</p>
+            </a>
+          </li>
+          <li class='option'>
+            <a class='nav-link' href="agenda.php">
+              <img class="icon" src="../../icons/appointment.png" alt="" srcset="">
+              <p>Mi agenda</p>
+            </a>
+          </li>
+        </ul>
+      </section>
+      <aside class="content"> 
+        <!-- FILTRO PACIENTE-->
             <form id="form" class="form-inline" method="get">
               <div class="form-group">
               <input name="key" class="form-control" type="text" >
               <div class="btn" onclick="form.submit()"><img src="../../icons/magnifying-glass.png" alt="Buscar" width="20px"></div>
             </div>
             </form>
-<?php
-  if (isset($_GET['key'])){
-    $busqueda = $_GET['key'];
-    $resultado = $metodosBD->buscarPaciente($busqueda);
-    ?>
-    <table>
-      <thead>
+          <?php
+        if (isset($_GET['key'])){
+        $busqueda = $_GET['key'];
+        if ($busqueda == ''){
+          $resultado = $metodosBD->listarPacientes();
+        }else{
+          $resultado = $metodosBD->buscarPaciente($busqueda);
+        }
+    
+          ?>
+          <table>
+        <thead>
         <tr>
           <th>N° Documento</th>
           <th>Nombre</th>
+          <th  style="text-align:center;" >Nueva Historia</th>
+
         </tr>
-      </thead>
-      <tbody>
+        </thead>
+        <tbody>
         <?php
           if(mysqli_num_rows($resultado) == 0){
 					        echo '<tr><td colspan="9">No hay coincidencias.</td></tr>';
@@ -117,151 +124,29 @@ $metodosBD = new MetodosBD();
                   echo '
                     <tr>
                       <td>'.$row['documentoIdentidad'].'</td>
-                       <td><a style="color: #120e3c; font-weight: 700;" href="historiaPaciente.php?id='.$row['usuario_idUsuario'].'">'.$row['nombre'].' '.$row['apellido'].'</a></td>
-                      
+                      <td><a style="color: #120e3c; font-weight: 500;" href="historiaPaciente.php?id='.$row['usuario_idUsuario'].'">'.$row['nombre'].' '.$row['apellido'].'</a></td>
+                      <td style="text-align:center;" ><a href="nuevaHistoria.php?id='.$row['usuario_idUsuario'].'"><img src="../../icons/boton-circular-plus(1).png" width="20px"></a></td>
                     </tr>
+                    
                     ';
+                  }
+                }
         ?>        
-      </tbody>
-      </table>
+        </tbody>
+        </table>
+      
 
-      <?php
-      }
-   }
-  }
-?>
-            <!-- END FILTRO PACIENTE -->
-
-
-     <table  border="1" width="800">
-      <thead>
-      <tr>
-        <th style="text-align: center;">HISTORIA CLÍNICA</th>
-      </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Antecendentes Familiares</strong></td>
-        </tr>
-        <tr>
-          <td>$DATOS</td>
-        </tr>
-        <tr>
-          <td><strong>Antecendentes Personales (Patologicos)</strong></td>
-        </tr>
-        <tr>
-          <td>$DATOS</td>
-        </tr>
-        <tr>
-          <td><strong>Antecendentes Personales (No Patologicos)</strong></td>
-        </tr>
-        <tr>
-          <td>$DATOS</td>
-        </tr>
-        <tr>
-              <td><strong>Historial Prenatal</strong></td>
-          </tr>
-          <tr>
-          <td>$DATOS</td>
-        </tr>
-          <tr>
-              <td><strong>Niñez Temprana</strong></td>
-          </tr>
-          <tr>
-          <td>$DATOS</td>
-        </tr>
-          <tr>
-              <td><strong> Niñez Media</strong></td>
-          </tr>
-          <tr>
-          <td>$DATOS</td>
-        </tr>
-        <tr>
-          <td><strong> Adolescencia</strong></td>
-        </tr>
-        <tr>
-          <td>$DATOS</td>
-        </tr>
-        <tr>
-              <td><strong> Vida adulta</strong></td>
-        </tr>
-        <tr>
-          <td>$DATOS</td>
-        </tr>
-    </table>
-    <br>
-    <table  border="1" width="800">
-        <tr>
-            <td style="width: 50%;"><strong> Fecha</strong></td>
-            <td style="width: 50%;"><strong> Profesional</strong></td> 
-        </tr>
-         <tr>
-        <td>$DATOS </td>
-        <td>$DATOS</td>
-        </tr>
-        <tr>
-            <td colspan="2"><strong> Fuente de informacion</strong></td>
-        </tr>
-        <tr>
-        <td colspan="2">$DATOS</td>
-        </tr>
-        <tr>
-            <td colspan="2"><strong> Motivo de consulta</strong></td>
-        </tr>
-        <tr>
-        <td colspan="2">$DATOS</td>
-        </tr>
-        <tr>
-            <td colspan="2"><strong> Historia de la enfermedad actual</strong></td>
-        </tr>
-        <tr>
-        <td colspan="2">$DATOS</td>
-        </tr>
-        <tr>
-            <td colspan="2"><strong> Examen del estado mental</strong></td>
-        </tr>
-        <tr>
-        <td colspan="2">$DATOS</td>
-        </tr>
-        <tr>
-            <td colspan="2"><strong> Examen fisico</strong></td>
-        </tr>
-        <tr>
-        <td colspan="2">$DATOS</td>
-        </tr>
-        <tr>
-            <td colspan="2"><strong>Diagnostico</strong> </td>
-        </tr>
-         <tr>
-        <td colspan="2">$DATOS</td>
-        </tr>
-        <tr>
-            <td colspan="2"><strong> Formulación dinamica</strong></td>
-        </tr>
-         <tr>
-        <td colspan="2">$DATOS</td>
-        </tr>
-        <tr>
-            <td colspan="2"><strong> Prognostico</strong></td>
-        </tr>
-         <tr>
-        <td colspan="2">$DATOS</td>
-        </tr>
-        <tr>
-            <td colspan="2"><strong> Tratamiento</strong></td>
-        </tr>
-         <tr>
-        <td colspan="2">$DATOS</td>
-        </tr>
-    </tbody>
-    </table>
-    </aside>
+        <?php
+      
+   
+        }
+        ?>
+        <!-- END FILTRO PACIENTE -->
+      </aside>
+    </div>
   </div>
-  </div>
-    
-
-
-  <footer>
+  <
+ <footer>
     <div class="footer">
       <nav class="navbar navbar-expand-sm navbar-dark bg-primary justify-content-center">
         <ul class="navbar-nav ">

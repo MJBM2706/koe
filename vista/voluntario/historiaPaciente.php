@@ -3,7 +3,7 @@
  if (!isset($_SESSION['tipo'])) {
      header('Location: ../index.php');
 }else{
-    if($_SESSION['tipo'] == 'profesional'){
+    if($_SESSION['tipo'] == 'voluntario'){
         
     }
      else{
@@ -183,6 +183,9 @@ if(isset($_POST['NuevoAntecedentes'])){
                   </li>
                 </ul>
               </div>
+              <input class="confirm" name="terminosycondiciones" type="checkbox" required>
+              <label for="terminosycondiciones">Acepto los terminos y condiciones de los datos registrados
+                en este sitio.</label>
               <div class="profile-form">
                 <input type="submit" name="updateAntecedentesHistoria" value="Actualizar Antecedentes">
               </div>
@@ -228,9 +231,6 @@ if(isset($_POST['NuevoAntecedentes'])){
                   </li>
                 </ul>
               </div>
-              <input class="confirm" name="terminosycondiciones" type="checkbox" required>
-              <label for="terminosycondiciones">Acepto los terminos y condiciones de los datos registrados
-              en este sitio.</label>
               <div class="profile-form">
                 <input type="submit" name="NuevoAntecedentes" value="Añadir Antecedentes">
               </div>
@@ -256,7 +256,7 @@ if(isset($_POST['NuevoAntecedentes'])){
 
           
           ?> 
-          <div class="card">
+          <div class="card mb-5">
             <div class="row" >
               <div class="col-4 card-header text-center offset-2">
                 <h5 class=""><?php echo $entrada['fecha'] ?></h5>

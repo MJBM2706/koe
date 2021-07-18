@@ -35,15 +35,23 @@ class MetodosBD{
     }
 
 
-    function CrearEntradaHistoria($idPaciente,$idProfesional,$fuenteInformacion,$motivoConsulta,$enfermedadActual,$examenMental,$diagnostico,$formulacionDinamica,$pronostico,$tratamiento){
+    function CrearEntradaHistoria($idPaciente,$idProfesionalVoluntario,$fuenteInformacion,$motivoConsulta,$enfermedadActual,$examenMental,$diagnostico,$formulacionDinamica,$pronostico,$tratamiento,$tipo){
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();
-        $resultado->query("INSERT INTO historia_clinica (paciente_Usuario_idUsuario,profesional_Usuario_idUsuario,fuenteInformacion,motivoConsulta,historiaEnfermedadActual,examenMental,diagnostico,formulacionDinamica,pronostico,tratamiento) VALUES
-         ('$idPaciente','$idProfesional','$fuenteInformacion','$motivoConsulta','$enfermedadActual','$examenMental','$diagnostico','$formulacionDinamica','$pronostico','$tratamiento')");
+        $resultado->query("INSERT INTO historia_clinica (paciente_Usuario_idUsuario,profesional_voluntario_IdUsuario,fuenteInformacion,motivoConsulta,historiaEnfermedadActual,examenMental,diagnostico,formulacionDinamica,pronostico,tratamiento,tipoProfesional_Voluntario) VALUES
+         ('$idPaciente','$idProfesionalVoluntario','$fuenteInformacion','$motivoConsulta','$enfermedadActual','$examenMental','$diagnostico','$formulacionDinamica','$pronostico','$tratamiento','$tipo')");
         if($resultado){
             return true;
         }
         return false;
+    }
+
+    function consultarHistoria($idPaciente){
+      $this->conn=new Conexion();
+      $resultado=$this->conn->conexion();
+      $result = $resultado->query("SELECT * FROM historia_clinica WHERE paciente_Usuario_idUsuario = '$idPaciente'");
+
+      return $result;
     }
 
     
@@ -80,6 +88,16 @@ class MetodosBD{
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();
         $result = $resultado->query("SELECT * FROM voluntario");
+        
+        //$rows = $result->fetch_all(MYSQLI_ASSOC);
+    
+        return $result;
+    }
+
+     function listarPacientes(){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $result = $resultado->query("SELECT * FROM paciente");
         
         //$rows = $result->fetch_all(MYSQLI_ASSOC);
     
@@ -213,7 +231,8 @@ class MetodosBD{
             //$rows = $result->fetch_all(MYSQLI_ASSOC);
         
             return $result;
-        } 
+    }
+
 
     function tipoUsuario($usuario_idUsuario){
         $this->conn=new Conexion();
