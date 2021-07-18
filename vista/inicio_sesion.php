@@ -61,7 +61,6 @@
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="#">¿Olvidaste tu contraseña?</a>
       <a class="underlineHover" href="../controlador/RegistroController.php">¿No tienes una cuenta? Regístrate</a>
     </div>
   </div>
