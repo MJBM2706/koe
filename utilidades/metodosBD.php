@@ -173,6 +173,16 @@ class MetodosBD{
         return false;
     }
 
+    function actualizarMiCuentaProfesional($idUsuario,$nombre,$apellido,$fechaNacimiento,$departamento,$ciudad,$direccion,$celular){
+      $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $resultado->query("UPDATE profesional SET nombre = '$nombre', apellido =  '$apellido',fechaNacimiento = '$fechaNacimiento', departamento = '$departamento', ciudad = '$ciudad', direccion = '$direccion', celular = '$celular'  WHERE usuario_idUsuario = $idUsuario"); 
+        if($resultado){
+            return true;
+        }
+        return false;
+    }
+
     function actualizarVoluntario($idUsuario,$nombre,$apellido,$tipoDocumento,$documento,$fechaNacimiento,$departamento,$ciudad,$direccion,$celular,$ocupacion,$estadoCapacitacion){
         $this->conn=new Conexion();
         $resultado=$this->conn->conexion();

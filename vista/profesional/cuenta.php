@@ -12,18 +12,12 @@ $metodosBD = new MetodosBD();
 if (isset($_POST['enviarDatos'])){
   $nombre = $_POST['nombre'];
   $apellido = $_POST['apellido'];
-  $tipoDocumento = $_POST['tipoDocumento'];
-  $documento = $_POST['documento'];
   $fechaNacimiento = $_POST['fechaNacimiento'];
-  $tituloProfesional = $_POST['tituloProfesional'];
-  $tarjetaProfesional = $_POST['tarjetaProfesional'];
-  $estadoTarjeta = $_POST['estadoTarjeta'];
-
   $departamento = $_POST['departamento'];
   $ciudad = $_POST['ciudad'];
   $direccion = $_POST['direccion'];
   $celular = $_POST['celular'];
-  $resultt = $metodosBD->actualizarProfesional($usuario_idUsuario,$nombre,$apellido,$tipoDocumento,$documento,$fechaNacimiento,$departamento,$ciudad,$direccion,$celular,$tituloProfesional,$tarjetaProfesional,$estadoTarjeta);
+  $resultt = $metodosBD->actualizarMiCuentaProfesional($usuario_idUsuario,$nombre,$apellido,$fechaNacimiento,$departamento,$ciudad,$direccion,$celular);
   if($resultt != true){
     echo "<script>alert('No se pudieron actualizar los datos');</script>";
   }else {
@@ -130,8 +124,7 @@ if (isset($_POST['enviarDatos'])){
                         </li>
                         <li>
                             <p>Tipo de documento</p>
- 
-                            <select class="profile-form-option" name="tipoDocumento" id="tipoDocumento"  required>
+                            <select class="profile-form-option" name="tipoDocumento" id="tipoDocumento" disabled required>
                             <option value="<?php echo $row['tipoDocumento'] ?>"><?php echo $row['tipoDocumento'] ?>
                                 <option value="Cédula">Cédula</option>
                                 <option value="Cédula Extranjeria">Cédula Extranjeria</option>
@@ -151,7 +144,7 @@ if (isset($_POST['enviarDatos'])){
                         </li>
                         <li>
                             <p>Documento de Identidad</p>
-                            <input type="text" name="documento" placeholder="Tu documento de identidad" value="<?php echo $row['documentoIdentidad'] ?>" disabled required>
+                            <input type="text" name="documentoIdentidad" placeholder="Tu documento de identidad" value="<?php echo $row['documentoIdentidad'] ?>"disabled required>
                         </li>
                         <li>
                             <p>Fecha de Nacimiento</p>
@@ -159,19 +152,19 @@ if (isset($_POST['enviarDatos'])){
                         </li>
                         <li>
                             <p>Email</p>
-                            <input type="email" name="correo" value="<?php echo $_SESSION['correo'] ?>" disabled required > 
+                            <input type="email" name="correo" value="<?php echo $_SESSION['correo'] ?>" disabled  required > 
                         </li>
                         <li>
                             <p>Título Profesional</p>
-                            <input type="text" name="tituloProfesional" value="<?php echo $row['tituloProfesional'] ?>" disabled required> 
+                            <input type="text" name="tituloProfesional" value="<?php echo $row['tituloProfesional']; ?>" disabled required> 
                         </li>
                         <li>
                             <p>Tarjeta Profesional</p>
-                            <input type="text" name="tarjetaProfesional" value="<?php echo $row['tarjetaProfesional'] ?>" disabled required > 
+                            <input type="text" name="tarjetaProfesional" value="<?php echo $row['tarjetaProfesional'] ?>"disabled  required > 
                         </li>
                         <li>
                             <p>Estado Tarjeta Profesional</p>
-                            <input type="text" name="estadoTarjeta" value="<?php echo $row['estadoTarjeta'] ?>" disabled required > 
+                            <input type="text" name="estadoTarjeta" value="<?php echo $row['estadoTarjeta'] ?>" disabled  required > 
                         </li>
                     </ul>
                   </div>
