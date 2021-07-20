@@ -100,7 +100,7 @@ if (!isset($_SESSION['tipo'])) {
       <p>El equipo de Koe te agradece por su dedicacion y excelente trabajo.</p>
 <?php
 if ($estado){
-  echo ("<a class='btn' href='https://app.chatra.io/conversations/mychat'>Ir al Chat</a>");
+  echo ("<a class='btn' target='_blank' href='https://app.chatra.io/conversations/mychat'>Ir al Chat</a>");
 }
 ?>
       

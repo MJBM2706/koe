@@ -267,7 +267,7 @@ if(isset($_POST['NuevoAntecedentes'])){
 
           
           ?> 
-          <div class="card">
+          <div class="card mb-5">
             <div class="row" >
               <div class="col-4 card-header text-center offset-2">
                 <h5 class=""><?php echo $entrada['fecha'] ?></h5>
@@ -297,7 +297,7 @@ if(isset($_POST['NuevoAntecedentes'])){
             </div>
           </div>
           <?php    
-          }
+        }
         }
       }else {?>
       <div class="card">
