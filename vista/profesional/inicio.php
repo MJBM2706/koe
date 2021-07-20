@@ -3,17 +3,29 @@ session_start();
 if (!isset($_SESSION['tipo'])) {
     header('Location: ../../index.php');
     die();
-}
-include '../../utilidades/metodosBD.php';
-$usuario_idUsuario = $_SESSION['idUsuario'];
-$metodosBD = new MetodosBD();
-$resultado = $metodosBD->consultarProfesional($usuario_idUsuario);
-if(mysqli_num_rows($resultado) > 0){
-  while ($row = mysqli_fetch_assoc($resultado)){
-    $userName = $row['nombre'];
-    $estado = $row['estado'];
+}else{
+  if($_SESSION['tipo'] == 'profesional'){
+    include '../../utilidades/metodosBD.php';
+    $usuario_idUsuario = $_SESSION['idUsuario'];
+    $metodosBD = new MetodosBD();
+    $resultado = $metodosBD->consultarProfesional($usuario_idUsuario);
+    if(mysqli_num_rows($resultado) > 0){
+      while ($row = mysqli_fetch_assoc($resultado)){
+        $userName = $row['nombre'];
+        $estado = $row['estado'];
+      }
+    }
+    if(!$estado){
+      echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Error. Usted se encuentra deshabilitado</div>';
+    }
+
+  }else{
+    header('Location: ../../index.php');
+    die();
   }
 }
+
+
 
 ?>
 <!DOCTYPE html>
@@ -96,7 +108,7 @@ if(mysqli_num_rows($resultado) > 0){
       <h2><?php echo "Bienvenid@, $userName" ?></h2>
       <p>El equipo de Koe te agradece por su dedicacion y excelente trabajo.</p>
 <?php
-if ($estado == '1'){
+if ($estado){
   echo ("<a class='btn' href='https://app.chatra.io/conversations/mychat'>Ir al Chat</a>");
 }
 ?>

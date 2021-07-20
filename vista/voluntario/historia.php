@@ -3,13 +3,28 @@ session_start();
 if (!isset($_SESSION['tipo'])) {
     header('Location: ../../index.php');
     die();
+}else{
+  if($_SESSION['tipo'] == 'voluntario'){
+    include '../../utilidades/metodosBD.php';
+    $usuario_idUsuario = $_SESSION['idUsuario'];
+    $metodosBD = new MetodosBD();
+    $resultado = $metodosBD->consultarVoluntario($usuario_idUsuario);
+    if(mysqli_num_rows($resultado) > 0){
+      while ($row = mysqli_fetch_assoc($resultado)){
+        $userName = $row['nombre'];
+        $estado = $row['estado'];
+      }
+    }
+    if(!$estado){
+      header('Location: ../../index.php');
+      echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Usted se encuentra deshabilitado</div>';
+    }
+
+  }else{
+    header('Location: ../../index.php');
+    die();
+  }
 }
-
-include '../../utilidades/metodosBD.php';
-$usuario_idUsuario = $_SESSION['idUsuario'];
-$metodosBD = new MetodosBD();
-
-
 
 ?>
 
@@ -78,12 +93,6 @@ $metodosBD = new MetodosBD();
             <a class='active nav-link' href="#">
               <img class="icon" src="../../icons/medical_record.png" alt="" srcset="">
               <p>Historial Clinico</p>
-            </a>
-          </li>
-          <li class='option'>
-            <a class='nav-link' href="agenda.php">
-              <img class="icon" src="../../icons/appointment.png" alt="" srcset="">
-              <p>Mi agenda</p>
             </a>
           </li>
         </ul>

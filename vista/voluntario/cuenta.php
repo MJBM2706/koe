@@ -3,11 +3,27 @@ session_start();
 if (!isset($_SESSION['tipo'])) {
     header('Location: ../../index.php');
     die();
-}
+}else{
+  if($_SESSION['tipo'] == 'voluntario'){
+    include '../../utilidades/metodosBD.php';
+    $usuario_idUsuario = $_SESSION['idUsuario'];
+    $metodosBD = new MetodosBD();
+    $resultado = $metodosBD->consultarVoluntario($usuario_idUsuario);
+    if(mysqli_num_rows($resultado) > 0){
+      while ($row = mysqli_fetch_assoc($resultado)){
+        $userName = $row['nombre'];
+        $estado = $row['estado'];
+      }
+    }
+    if(!$estado){
+      echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Usted se encuentra deshabilitado</div>';
+    }
 
-include '../../utilidades/metodosBD.php';
-$usuario_idUsuario = $_SESSION['idUsuario'];
-$metodosBD = new MetodosBD();
+  }else{
+    header('Location: ../../index.php');
+    die();
+  }
+}
 
 if (isset($_POST['enviarDatos'])){
   $nombre = $_POST['nombre'];
@@ -93,12 +109,6 @@ if (isset($_POST['enviarDatos'])){
           <a class='nav-link' href="historia.php">
             <img class="icon" src="../../icons/medical_record.png" alt="" srcset="">
             <p>Historial Clinico</p>
-          </a>
-        </li>
-        <li class='option'>
-          <a class='nav-link' href="citas.php">
-            <img class="icon" src="../../icons/appointment.png" alt="" srcset="">
-            <p>Agendar Cita</p>
           </a>
         </li>
       </ul>

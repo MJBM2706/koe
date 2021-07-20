@@ -1,18 +1,30 @@
 <?php
  session_start();
  if (!isset($_SESSION['tipo'])) {
-     header('Location: ../index.php');
-}else{
-    if($_SESSION['tipo'] == 'voluntario'){
-        
-    }
-     else{
     header('Location: ../../index.php');
     die();
-  }  
+}else{
+  if($_SESSION['tipo'] == 'voluntario'){
+    include '../../utilidades/metodosBD.php';
+    $usuario_idUsuario = $_SESSION['idUsuario'];
+    $metodosBD = new MetodosBD();
+    $resultado = $metodosBD->consultarVoluntario($usuario_idUsuario);
+    if(mysqli_num_rows($resultado) > 0){
+      while ($row = mysqli_fetch_assoc($resultado)){
+        $userName = $row['nombre'];
+        $estado = $row['estado'];
+      }
+    }
+    if(!$estado){
+      header('Location: ../../index.php');
+      echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Usted se encuentra deshabilitado</div>';
+    }
+
+  }else{
+    header('Location: ../../index.php');
+    die();
+  }
 }
-require_once('../../utilidades/metodosBD.php');
-$metodosBD = new MetodosBD();
 
 if(isset($_GET['id'])){
   $idPaciente = $_GET['id'];

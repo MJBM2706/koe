@@ -1,42 +1,44 @@
 <?php
  session_start();
- if (!isset($_SESSION['tipo'])) {
-     header('Location: ../index.php');
-}else{
-    if($_SESSION['tipo'] == 'voluntario'){
-        
-    }
-     else{
+if (!isset($_SESSION['tipo'])) {
     header('Location: ../../index.php');
     die();
-  }  
+}else{
+  if($_SESSION['tipo'] == 'voluntario'){
+    include '../../utilidades/metodosBD.php';
+    $usuario_idUsuario = $_SESSION['idUsuario'];
+    $idPaciente = $_GET['id'];
+    $idVoluntario = $_SESSION['idUsuario'];
+    $tipo = $_SESSION['tipo'];
+    $metodosBD = new MetodosBD();
+    $resultado = $metodosBD->consultarVoluntario($usuario_idUsuario);
+    if(mysqli_num_rows($resultado) > 0){
+      while ($row = mysqli_fetch_assoc($resultado)){
+        $userName = $row['nombre'];
+        $estado = $row['estado'];
+      }
+    }
+    if(!$estado){
+      header('Location: ../../index.php');
+      echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Usted se encuentra deshabilitado</div>';
+    }
+
+  }else{
+    header('Location: ../../index.php');
+    die();
+  }
 }
-require_once('../../utilidades/metodosBD.php');
-$metodosBD = new MetodosBD();
-$idPaciente = $_GET['id'];
-$idVoluntario = $_SESSION['idUsuario'];
-$tipo = $_SESSION['tipo'];
 
 if(isset($_POST['addHistoria'])){
   $fuenteInformacion = $_POST['fuenteInformacion'];
   $motivoConsulta = $_POST['motivoConsulta'];
   $enfermedadActual = $_POST['enfermedadActual'];
-  $examenMental = $_POST['examenMental'];
-  $diagnostico = $_POST['diagnostico'];
-  $formulacionDinamica = $_POST['formulacionDinamica'];
-  $pronostico = $_POST['pronostico'];
-  $tratamiento = $_POST['tratamiento'];
   
   $errores = '';
 
     if (empty($fuenteInformacion) 
     or empty($motivoConsulta) 
     or empty($enfermedadActual)
-    or empty($examenMental)
-    or empty($diagnostico)
-    or empty($formulacionDinamica)
-    or empty($pronostico)
-    or empty($tratamiento)
     
     ) {
         echo'<script type="text/javascript">
@@ -47,17 +49,12 @@ if(isset($_POST['addHistoria'])){
     } else {
 
         if ($errores == ''){
-          $nuevo=$metodosBD->CrearEntradaHistoria(
+          $nuevo=$metodosBD->CrearEntradaHistoriaVoluntario(
             $idPaciente,
             $idVoluntario,
             $fuenteInformacion,
             $motivoConsulta,
             $enfermedadActual,
-            $examenMental,
-            $diagnostico,
-            $formulacionDinamica,
-            $pronostico,
-            $tratamiento,
             $tipo);
         if ($nuevo) {
             echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Historia agregada con éxito.</div>';

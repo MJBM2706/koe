@@ -46,6 +46,17 @@ class MetodosBD{
         return false;
     }
 
+    function CrearEntradaHistoriaVoluntario($idPaciente,$idProfesionalVoluntario,$fuenteInformacion,$motivoConsulta,$enfermedadActual,$tipo){
+        $this->conn=new Conexion();
+        $resultado=$this->conn->conexion();
+        $resultado->query("INSERT INTO historia_clinica (paciente_Usuario_idUsuario,profesional_voluntario_IdUsuario,fuenteInformacion,motivoConsulta,historiaEnfermedadActual,tipoProfesional_Voluntario) VALUES
+         ('$idPaciente','$idProfesionalVoluntario','$fuenteInformacion','$motivoConsulta','$enfermedadActual','$tipo')");
+        if($resultado){
+            return true;
+        }
+        return false;
+    }
+
     function consultarHistoria($idPaciente){
       $this->conn=new Conexion();
       $resultado=$this->conn->conexion();

@@ -1,21 +1,35 @@
 <?php
  session_start();
  if (!isset($_SESSION['tipo'])) {
-     header('Location: ../index.php');
-}else{
-    if($_SESSION['tipo'] == 'profesional'){
-        
-    }
-     else{
     header('Location: ../../index.php');
     die();
-  }  
+}else{
+  if($_SESSION['tipo'] == 'profesional'){
+    include '../../utilidades/metodosBD.php';
+    $usuario_idUsuario = $_SESSION['idUsuario'];
+    $idPaciente = $_GET['id'];
+    $idProfesional = $_SESSION['idUsuario'];
+    $tipo = $_SESSION['tipo'];
+    $metodosBD = new MetodosBD();
+    $resultado = $metodosBD->consultarProfesional($usuario_idUsuario);
+    if(mysqli_num_rows($resultado) > 0){
+      while ($row = mysqli_fetch_assoc($resultado)){
+        $userName = $row['nombre'];
+        $estado = $row['estado'];
+      }
+    }
+    if(!$estado){
+      header('Location: ../../index.php');
+      echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Usted se encuentra deshabilitado</div>';
+    }
+
+  }else{
+    header('Location: ../../index.php');
+    die();
+  }
 }
-require_once('../../utilidades/metodosBD.php');
-$metodosBD = new MetodosBD();
-$idPaciente = $_GET['id'];
-$idProfesional = $_SESSION['idUsuario'];
-$tipo = $_SESSION['tipo'];
+
+
 
 if(isset($_POST['addHistoria'])){
   $fuenteInformacion = $_POST['fuenteInformacion'];
